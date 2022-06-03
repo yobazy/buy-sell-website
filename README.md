@@ -2,7 +2,9 @@ BUY-SELL
 =========
 
 ## Overview (4-5 Sentences)
-## Group Members (linked to their GitHub)
+
+Main Contributors: [Taylor McLeod](https://github.com/lorleod), [Céilidhe Maher](https://github.com/cmaher15)
+
 ## important URL link to their Demo Project
 ## Demo Images ( 2-5 should walk user through app features )
 ## Tech Stack
