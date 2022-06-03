@@ -1,3 +1,14 @@
+BUY-SELL
+=========
+
+## Overview (4-5 Sentences)
+## Group Members (linked to their GitHub)
+## important URL link to their Demo Project
+## Demo Images ( 2-5 should walk user through app features )
+## Tech Stack
+## Future Goals (Optional)
+## Setup
+
 LHL Node Skeleton
 =========
 
