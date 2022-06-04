@@ -23,3 +23,9 @@ module.exports = (db) => {
   });
   return router;
 };
+
+// B - GET -  /items
+// R - GET -  /items/:id
+// E - POST - /items/:id
+// A - POST - /items/:id/create
+// D - POST - /items/:id/delete
