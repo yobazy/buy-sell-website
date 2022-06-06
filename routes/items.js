@@ -25,11 +25,17 @@ module.exports = (db) => {
   });
 
   router.get("/:itemID", (req, res) => {
-  const itemID = req.params
+    const itemID = req.params
+    console.log("itemID", itemID);
 
-    let query = `SELECT * FROM items`;
-    console.log(query);
-    db.query(query)
+    let queryString = `
+    SELECT * FROM items
+    WHERE id = '$1';
+    `;
+    console.log("queryString: ", query);
+
+    let values = [itemID];
+    db.query(queryString, values)
       .then(data => {
         const items = data.rows;
         res.json({ items });
