@@ -24,8 +24,40 @@ module.exports = (db) => {
       });
   });
 
+  router.get("/:itemID", (req, res) => {
+  const itemID = req.param
 
+    let query = `SELECT * FROM items`;
+    console.log(query);
+    db.query(query)
+      .then(data => {
+        const items = data.rows;
+        res.json({ items });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
 
+  router.post("/:itemID/create", (req, res) => {
+    // convert to parametqic
+    let query = `
+    INSERT INTO items (user_id, title, description, item_photo_url, price)
+    VALUES ($1, $2, $3, $4, $5)`;
+    console.log(query);
+    db.query(query)
+      .then(data => {
+        const items = data.rows;
+        res.json({ items });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
 
   return router;
 };

@@ -38,8 +38,8 @@ module.exports = (db) => {
   return router;
 };
 
-// B - GET -  /items
-// R - GET -  /items/:id
-// E - POST - /items/:id
-// A - POST - /items/:id/create
-// D - POST - /items/:id/delete
+// B - GET -  / - get all users
+// R - GET -  /items/:id - get user with specific id
+// E - POST - /users/:id - edit a user
+// A - POST - /items/:id/create - create a new user
+// D - POST - /items/:id/delete - delete a user

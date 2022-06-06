@@ -15,7 +15,5 @@ INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (3
 -- favourite table seeds here
 
 INSERT INTO favourites (user_id, item_id) VALUES (1, 1);
-
 INSERT INTO favourites (user_id, item_id) VALUES (2, 2);
-
 INSERT INTO favourites (user_id, item_id) VALUES (3, 3);
