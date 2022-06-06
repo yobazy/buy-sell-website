@@ -25,7 +25,7 @@ module.exports = (db) => {
   });
 
   router.get("/:itemID", (req, res) => {
-  const itemID = req.param
+  const itemID = req.params
 
     let query = `SELECT * FROM items`;
     console.log(query);

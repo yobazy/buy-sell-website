@@ -8,9 +8,12 @@ INSERT INTO users (name, email, is_admin) VALUES ('Micheal', 'mike@gmail.com', f
 
 
 -- items table seeds here
-INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (1, 'Fox', 'A pretty cool fox costume', '/images/fox', 10);
-INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (2, 'Dog', 'A pretty cool dog costume', '/images/dog', 10);
-INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (3, 'Cat', 'A pretty cool cat costume', '/images/cat', 10);
+INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (1, 'Fox', 'A pretty cool fox avatar', '/images/fox', 10);
+INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (1, 'Anime Girl', 'A pretty cool anime avatar', '/images/anigirl', 11);
+INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (2, 'Dog', 'A pretty cool dog avatar', '/images/dog', 12);
+VALUES (2, 'Anime Boy', 'A pretty cool anime avatar', '/images/aniboy', 11);
+INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (3, 'Cat', 'A pretty cool cat avatar', '/images/cat', 13);
+INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (3, 'Banana Man', 'A pretty cool banana avatar', '/images/bananaman', 99);
 
 -- favourite table seeds here
 
