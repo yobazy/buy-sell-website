@@ -1,0 +1,56 @@
+body {
+  overscroll-behavior: none;
+}
+
+nav {
+  display: flex;
+  position: fixed;
+  flex-direction: row;
+  height: 100px;
+  width: 100%;
+  padding: 1.5em;
+  padding-top: 0em;
+  color: #FFFFFF;
+  background-color: #000000;
+  background-image: url(http://www.transparenttextures.com/patterns/stucco.png);
+  justify-content: space-between;
+}
+
+p.reason {
+  display: flex;
+  flex-direction: row;
+  position: inherit;
+  font-family: Audiowide, sans-serif;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  font-size: 36px;
+}
+
+p.reality {
+  display: flex;
+  flex-direction: row;
+  margin-left: 150px;
+  margin-top: 0px;
+  padding-top: 0px;
+  font-family: Quantico, sans-serif;
+  font-size: 24px;
+}
+
+button {
+  border-radius: 25px;
+  margin-top: 50px;
+  margin-right: 20px;
+  border: 2px solid whitesmoke;
+  padding: 10px;
+  font-family: Quantico, sans-serif;
+  font-size: 16px;
+}
+
+div.button {
+  margin-right: 20px;
+}
+
+div.button :hover {
+background-color: rgb(80, 73, 90);
+color: whitesmoke;
+}
