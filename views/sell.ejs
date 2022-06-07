@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+  <!-- Meta Information -->
+  <title>Reasonable Realities</title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    type="text/css" />
+
+  <!-- Font Imports -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Bungee&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Sen:wght@400;700&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome Import -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/home.css" type="text/css" />
+
+
+
+  <!-- External JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.4.3/jquery.timeago.min.js"></script>
+</head>
+
+<body>
+  <nav>
+  <span><p class="reason">Reasonable</p> <p class="reality">Realities</p></span>
+  <div class="button">
+  <button>Login</button>
+  <button>Sell</button>
+  <button>My Purchases</button>
+  <button>My Favourites</button>
+</div>
+</nav>
+
+
+  <form action="/api/items" method="post" id="new-item-form" class="new-item-form">
+    <div class="new-item-form__field-wrapper">
+      <label for="new-item-form__title">Title</label>
+      <input type="text" name="title" placeholder="Title" id="new-item-form__title">
+    </div>
+
+    <div class="new-item-form__field-wrapper">
+      <label for="new-item-form__description">Description</label>
+      <textarea placeholder="Description" name="description" id="item-form__description" cols="30" rows="5"></textarea>
+    </div>
+
+
+    <div class="new-item-form__field-wrapper">
+      <label for="new-item-form__cost">Price</label>
+      <input placeholder="Price" type="number" name="price" id="new_item_form__price">
+    </div>
+
+    <div class="new-item-form__field-wrapper">
+      <label for="new-item-form__image">Image</label>
+      <input placeholder="Image" type="text" name="item_photo_url" id="new-item-form__image">
+    </div>
+
+
+      <div class="new-item-form__field-wrapper">
+          <button>Create</button>
+          <a id="item-form__cancel" href="#">Cancel</a>
+      </div>
+
+  </form>
+  </body>
+  </html>
+
