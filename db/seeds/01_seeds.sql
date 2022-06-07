@@ -8,12 +8,12 @@ INSERT INTO users (name, email, is_admin) VALUES ('Micheal', 'mike@gmail.com', f
 
 
 -- items table seeds here
-INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (1, 'Fox', 'A pretty cool fox avatar', 'public/images/ceilidhe_avatar.jpg', 10);
-INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (1, 'Anime Girl', 'A pretty cool anime girl avatar', 'public/images/anigirl.jpg', 11);
-INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (2, 'Dog', 'A pretty cool dog avatar', 'public/images/dog.jpg', 12);
-INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (2, 'Anime Boy', 'A pretty cool anime boy avatar', 'public/images/aniboy.jpeg', 11);
-INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (3, 'Cat', 'A pretty cool cat avatar', 'public/images/cat.gif', 13);
-INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (3, 'Banana Man', 'A pretty cool banana avatar', 'public/images/bananaman.webp', 99);
+INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (1, 'Fox', 'A pretty cool fox avatar', '/images/ceilidhe_avatar.jpg', 10);
+INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (1, 'Anime Girl', 'A pretty cool anime girl avatar', '/images/anigirl.jpg', 11);
+INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (2, 'Dog', 'A pretty cool dog avatar', '/images/dog.jpg', 12);
+INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (2, 'Anime Boy', 'A pretty cool anime boy avatar', '/images/aniboy.jpeg', 11);
+INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (3, 'Cat', 'A pretty cool cat avatar', '/images/cat.gif', 13);
+INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (3, 'Banana Man', 'A pretty cool banana avatar', '/images/bananaman.webp', 99);
 
 -- favourite table seeds here
 
