@@ -1,4 +1,5 @@
 // Client facing scripts here
+
 // function for creating new tweet element
 const addNewItem = function(item) {
   console.log(item);
@@ -38,8 +39,35 @@ const loadItems = function() {
     .catch(function(err)  { console.error(err) });
 };
 
-const sellItem = $('.sell_form ')
 
+
+const sellItem = function (item) {
+  console.log("Sell item running")
+  return $.ajax({
+    method: "POST",
+    url: "/api/items",
+    data: item
+
+  })
+}
+
+$(document).ready(() => {
+  console.log("HELLLOOOOOO")
+$('#new-item-form').on('submit', (evt) => {
+  evt.preventDefault();
+  let data = $('#new-item-form').serialize()
+  console.log("Send Data", data)
+    sellItem(data)
+  .then(() => {
+    addNewItem(data)
+    console.log("addNewItem")
+  })
+  .then (() => {
+    renderItems;
+  })
+  .catch(function(err)  { console.error(err) })
+})
+})
 
 // show favourite items for user
 // THIS ASSUMES USER_ID IS = 1, NEED TO ADD FURTHER IMPLEMENTATION

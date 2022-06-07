@@ -82,7 +82,7 @@ module.exports = (db) => {
 
     let queryString = `
     INSERT INTO items (user_id, title, description, item_photo_url, price)
-    VALUES ($1, $2, $3, $4, $5)
+    VALUES ($1, $2, $3, $4, $5 RETURNING *)
     `;
     console.log("queryString: ", queryString);
     let values = [itemID];
