@@ -77,7 +77,9 @@ app.get('/login', (req, res) => {
   res.render('login');
 });
 
-
+app.get('/sell', (req, res) => {
+  res.render('sell');
+});
 
 app.get('/favourites', (req, res) => {
   res.render('favourites');
