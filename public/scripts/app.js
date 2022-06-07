@@ -1,32 +1,86 @@
 // Client facing scripts here
+// function for creating new tweet element
+const addNewItem = function(item) {
+  console.log(item);
 
-$
-(()=> {
-  const renderItems = function(items) {
-    for (let item of items) {
-      const $newItem = addNewItem(item);
-      $('.items').append($newItem);
-    }
+  const $item = $(`
+  <div class="layout">
+  <h2>${item.title}</h2>
+  <img src="${item.url}" />
+  <h2>${item.price}</h2>
+  <p>${item.description}</p>
+  <div class="button2">
+  <button class="button">Favourite</button>
+  <button class="button">Buy</button>
+  <button class="button">View</button>
+  </div>`)
+  return $item;
+};
+
+// render all items on page
+const renderItems = function(itemJSON) {
+  console.log(itemJSON)
+  let itemsArr = itemJSON.items
+  $('#items-container').empty();
+  for (let item of itemsArr) {
+    console.log('item',item)
+    let $item = addNewItem(item);
+    $('#items-container').append($item);
   }
-  const addNewItem = function(item) {
-    const $item = (`
-    <div class="layout"><h2>${item.title}</h2>
-    <img src="${item.url}" />
-      <h2>${item.price}</h2>
-      <p>${item.description}</p>
-      <div class="button2">
-      <button class="button">Favourite</button>
-       <button class="button">Buy</button>
-       <button class="button">View</button></div>`)
+};
 
-    return $item;
-  };
-
+// get items to render
 const loadItems = function() {
-  $.get('/items', (item) => {
-    renderItems(item);
-  })
-}
-loadItems();
+  $.ajax('/api/items/', { method: 'GET' })
+    .then(function(items) {
+      renderItems(items);
+    })
+    .catch(function(err)  { console.error(err) });
+};
 
-} )
+$(document).ready(function()  {
+  console.log('this is happening')
+  loadItems();
+});
+
+
+
+
+
+// $
+// (()=> {
+//   const renderItems = function(items) {
+//     for (let item of items) {
+//       const $newItem = addNewItem(item);
+//       $('.items').append($newItem);
+//     }
+//   }
+//   const addNewItem = function(item) {
+//     const $item = (`
+//     <div class="layout">
+//       <h2>${item.title}</h2>
+//       <img src="${item.url}" />
+//       <h2>${item.price}</h2>
+//       <p>${item.description}</p>
+//       <div class="button2">
+//       <button class="button">Favourite</button>
+//       <button class="button">Buy</button>
+//       <button class="button">View</button>
+//     </div>`)
+
+//     return $item;
+//   };
+
+//   // render all items on page
+//   const loadItems = function() {
+//     $.get('/items', (items) => {
+//       renderItems(items);
+//     })
+//   }
+//   loadItems();
+
+// } )
+
+// $(document).ready(function()  {
+//   loadItems();
+// })
