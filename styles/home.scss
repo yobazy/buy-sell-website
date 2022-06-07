@@ -13,6 +13,7 @@ label {
 div.layout {
   display: flex;
   margin: 50px;
+  font-family: Quantico, sans-serif;
   align-items: center;
   border: solid black 5px;
   flex-direction: column;
@@ -24,6 +25,10 @@ div.main {
   flex-direction: row;
   justify-content: space-between;
 
+}
+
+img {
+  padding: 10px;
 }
 
 .items {
