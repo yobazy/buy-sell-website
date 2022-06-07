@@ -6,7 +6,7 @@ const addNewItem = function(item) {
   const $item = $(`
   <div class="layout">
   <h2>${item.title}</h2>
-  <img src="${item.url}" />
+  <img src="${item.item_photo_url}" />
   <h2>${item.price}</h2>
   <p>${item.description}</p>
   <div class="button2">
