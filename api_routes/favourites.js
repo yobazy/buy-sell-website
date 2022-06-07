@@ -1,7 +1,7 @@
 /*
- * All routes for Items are defined here
- * Since this file is loaded in server.js into api/items,
- *   these routes are mounted onto /items
+ * All routes for favourites are defined here
+ * Since this file is loaded in server.js into api/favourites,
+ *   these routes are mounted onto /favourites
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
@@ -11,15 +11,22 @@ const router  = express.Router();
 
 
 module.exports = (db) => {
-router.get("/:userID/favourites", (req, res) => {
-  const userID = req.params.userID;
+router.get("/", (req, res) => {
+  // const userID = req.params.userID;
+
+  // use placeholder value for userID until login/cookies implementation
+  const userID = 1
+
   let queryString =
-`SELECT * FROM favourites WHERE user_id = $1`
+  `SELECT * FROM favourites
+  WHERE user_id = $1`;
   console.log(queryString);
+
   let values = [userID]
   db.query(queryString, values)
     .then(data => {
       const items = data.rows;
+      console.log(items)
       res.json({ items });
     })
     .catch(err => {

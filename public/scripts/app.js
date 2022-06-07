@@ -40,6 +40,13 @@ const loadItems = function() {
 
 // show favourite items for user
 // THIS ASSUMES USER_ID IS = 1, NEED TO ADD FURTHER IMPLEMENTATION
+// const favItems = function() {
+//   $.ajax('/api/favourites/', { method: 'GET' })
+//     .then(function(items) {
+//       renderItems(items);
+//     })
+//     .catch(function(err)  { console.error(err) });
+// };
 
 
 
