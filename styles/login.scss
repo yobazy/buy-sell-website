@@ -1,0 +1,46 @@
+body {
+  background: rgb(163, 208, 219);
+  background: linear-gradient(
+    227deg,
+    rgba(163, 208, 219, 1) 0%,
+    rgba(163, 176, 219, 1) 20%,
+    rgba(163, 173, 219, 1) 34%,
+    rgba(163, 219, 208, 1) 59%,
+    rgba(163, 208, 219, 1) 74%,
+    rgba(163, 208, 219, 1) 100%
+  );
+}
+
+main.login {
+  margin: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+div.form-group.mb-2{
+  margin: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  border-radius: 25px;
+  margin-top: 50px;
+  margin-right: 20px;
+  border: 2px solid whitesmoke;
+  padding: 10px;
+  font-family: Quantico, sans-serif;
+  font-size: 16px;
+}
+
+div.button {
+  margin-right: 20px;
+}
+
+div.button :hover {
+background-color: rgb(80, 73, 90);
+color: whitesmoke;
+}
