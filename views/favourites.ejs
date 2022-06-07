@@ -38,9 +38,16 @@
 </head>
 
 <body>
-
-<%- include ('partials/_header') %>
-
+  <!-- Top nav bar (fixed) -->
+  <nav>
+    <span><p class="reason">Reasonable</p> <p class="reality">Realities</p></span>
+    <div class="button">
+    <button>Login</button>
+    <button>Sell</button>
+    <button>My Purchases</button>
+    <button>View All Items</button>
+  </div>
+  </nav>
 
   <!-- Page-specific (main) content here -->
   <main class="items">
@@ -49,18 +56,18 @@
           <h2>$34</h2>
           <p>It's a pretty neat photo, price is firm!</p>
           <div class="button2">
-            <button class="button">Favourite</button>
+            <button class="button">Remove From Favourites</button>
             <button class="button">Buy</button>
-            <button class="button">View</button></div></div>
+            <button class="button">Message Seller</button></div></div>
             <div class="layout">
             <h2>Item 2</h2>
             <img src="/images/doge.jpeg" />
               <h2>$38</h2>
               <p>It's a pretty neat photo, price is firm!</p>
               <div class="button2">
-               <button class="button2">BUTTTOOOOON</button>
-                <button class="button2">Buy</button>
-                <button class="button2">View</button></div>
+                <button class="button">Remove From Favourites</button>
+                <button class="button">Buy</button>
+                <button class="button">Message Seller</button></div>
                 </div>
   </main>
 
