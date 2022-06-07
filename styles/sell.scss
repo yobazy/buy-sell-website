@@ -1,6 +1,21 @@
-#new-item-form {
+body {
+  display: flex;
+  justify-content: center;
+}
+
+main.sell_form{
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 150px;
-  margin-left: 300px;
+  width: fit-content;
+  height: fit-content;
+  border: 3px solid black;
+  padding: 20px;
+  font-family: Quantico, sans-serif;
+}
+
+div.new-item-form__field-wrapper {
+  margin-top: 10px;
 }

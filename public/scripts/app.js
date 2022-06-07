@@ -38,6 +38,9 @@ const loadItems = function() {
     .catch(function(err)  { console.error(err) });
 };
 
+const sellItem = $('.sell_form ')
+
+
 // show favourite items for user
 // THIS ASSUMES USER_ID IS = 1, NEED TO ADD FURTHER IMPLEMENTATION
 // const favItems = function() {
