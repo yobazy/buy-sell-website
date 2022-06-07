@@ -38,9 +38,18 @@ const loadItems = function() {
     .catch(function(err)  { console.error(err) });
 };
 
+// show favourite items for user
+// THIS ASSUMES USER_ID IS = 1, NEED TO ADD FURTHER IMPLEMENTATION
+
+
+
 $(document).ready(function()  {
   console.log('this is happening')
   loadItems();
+  $("#show_favourites").click(function(event) {
+    alert('favourites clicked')
+    //loadFavourites
+  });
 });
 
 
