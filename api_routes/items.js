@@ -8,6 +8,33 @@
 const express = require('express');
 const router  = express.Router();
 
+// getAllItems = (options) => {
+//   const queryParams = [];
+
+//   let queryString = `
+//   SELECT items.*
+//   FROM properties
+//   JOIN favourites ON items.id = favourites.item_id
+//   JOIN users ON users.id = favourites.user_id
+//   `;
+
+//   console.log("queryString: ", queryString);
+//   console.log("queryParams: ", queryParams);
+
+//   db.query(queryString, queryParams)
+//       .then(data => {
+//         const item = data.rows;
+//         console.log("item: ", item)
+//         res.json({ item });
+//       })
+//       .catch(err => {
+//         res
+//           .status(500)
+//           .json({ error: err.message });
+//       });
+// }
+
+
 module.exports = (db) => {
   router.get("/", (req, res) => {
     let query = `SELECT * FROM items`;
