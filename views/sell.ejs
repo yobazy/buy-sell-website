@@ -33,6 +33,7 @@
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="scripts/app.js"></script>
 </head>
 
 <body>
@@ -47,32 +48,32 @@
 </nav>
 
 <main class="sell_form">
-  <form action="/api/items" method="post" id="new-item-form" class="new-item-form">
-    <div class="new-item-form__field-wrapper">
-      <label for="new-item-form__title">Title</label>
+  <form action="/api/items" id="new-item-form" class="new-item-form">
+    <div class="new-item-form">
+      <label for="new-item-form">Title</label>
       <input type="text" name="title" placeholder="Title" id="new-item-form__title">
     </div>
 
-    <div class="new-item-form__field-wrapper">
-      <label for="new-item-form__description">Description</label>
-      <textarea placeholder="Description" name="description" id="item-form__description" cols="30" rows="5"></textarea>
+    <div class="new-item-form">
+      <label for="new-item-form">Description</label>
+      <textarea placeholder="Description" name="description" id="new-item-form" cols="30" rows="5"></textarea>
     </div>
 
 
-    <div class="new-item-form__field-wrapper">
-      <label for="new-item-form__cost">Price</label>
+    <div class="new-item-form">
+      <label for="new-item-form">Price</label>
       <input placeholder="Price" type="number" name="price" id="new_item_form__price">
     </div>
 
-    <div class="new-item-form__field-wrapper">
-      <label for="new-item-form__image">Image</label>
-      <input placeholder="Image" type="text" name="item_photo_url" id="new-item-form__image">
+    <div class="new-item-form">
+      <label for="new-item-form">Image</label>
+      <input placeholder="Image" type="text" name="item_photo_url" id="new-item-form">
     </div>
 
 
-      <div class="new-item-form__field-wrapper">
+      <div class="new-item-form">
           <button>Create</button>
-          <a id="item-form__cancel" href="#">Cancel</a>
+          <a id="item-form" href="/">Cancel</a>
       </div>
 
   </form>
