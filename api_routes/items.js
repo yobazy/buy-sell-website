@@ -49,16 +49,48 @@ module.exports = (db) => {
       });
   });
 
-  router.post("/:itemID/create", (req, res) => {
-    // convert to parametqic
-    let query = `
+  router.get("/:itemID/create", (req, res) => {
+    const itemID = req.params.itemID
+    console.log("itemID", itemID);
+
+    let queryString = `
     INSERT INTO items (user_id, title, description, item_photo_url, price)
-    VALUES ($1, $2, $3, $4, $5)`;
-    console.log(query);
-    db.query(query)
+    VALUES ($1, $2, $3, $4, $5)
+    `;
+    console.log("queryString: ", queryString);
+    let values = [itemID];
+    console.log("values: ", values);
+
+    db.query(queryString, values)
       .then(data => {
-        const items = data.rows;
-        res.json({ items });
+        const item = data.rows;
+        console.log("item: ", item)
+        res.json({ item });
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
+  router.get("/:itemID/delete", (req, res) => {
+    const itemID = req.params.itemID
+    console.log("itemID", itemID);
+
+    let queryString = `
+    DELETE FROM items
+    WHERE id = $1
+    `;
+    console.log("queryString: ", queryString);
+    let values = [itemID];
+    console.log("values: ", values);
+
+    db.query(queryString, values)
+      .then(data => {
+        const item = data.rows;
+        console.log("item: ", item)
+        res.json({ item });
       })
       .catch(err => {
         res
