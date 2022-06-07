@@ -7,7 +7,7 @@ const addNewItem = function(item) {
   <div class="layout">
   <h2>${item.title}</h2>
   <img src="${item.item_photo_url}" />
-  <h2>${item.price}</h2>
+  <h2>$${item.price}</h2>
   <p>${item.description}</p>
   <div class="button2">
   <button class="button">Favourite</button>
@@ -21,11 +21,11 @@ const addNewItem = function(item) {
 const renderItems = function(itemJSON) {
   console.log(itemJSON)
   let itemsArr = itemJSON.items
-  $('#items-container').empty();
+  $('.items-grid').empty();
   for (let item of itemsArr) {
     console.log('item',item)
     let $item = addNewItem(item);
-    $('#items-container').append($item);
+    $('.items-grid').append($item);
   }
 };
 
