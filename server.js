@@ -34,21 +34,29 @@ app.use(
 app.use(express.static("public"));
 
 // Separated Routes for each Resource
-// Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
-const itemsRoutes = require("./routes/items");
-const favouritesRoutes = require("./routes/favourites");
+// APIs
+const usersApiRoutes = require("./api_routes/users");
+const itemsApiRoutes = require("./api_routes/items");
+const favouritesApiRoutes = require("./api_routes/favourites");
+
+
+// Content
+
+// const usersRoutes = require("./routes/users");
+// const itemsRoutes = require("./routes/items");
+// const favouritesRoutes = require("./routes/favourites");
 
 // Mount all resource routes
-// Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
 
-// Note: mount other resources here, using the same pattern above
-app.use("/api/items", itemsRoutes(db));
+// API routes
+app.use("/api/users", usersApiRoutes(db));
+app.use("/api/items", itemsApiRoutes(db));
+app.use("/api/favourites", favouritesApiRoutes(db));
 
-app.use("/api/favourites", favouritesRoutes(db));
-
-
+// Content Routes
+// app.use("/users", itemsRoutes(db));
+// app.use("/items", itemsRoutes(db));
+// app.use("/favourites", favouritesRoutes(db));
 
 // Home page
 // Warning: avoid creating more routes in this file!
@@ -57,6 +65,10 @@ app.use("/api/favourites", favouritesRoutes(db));
 
 app.get("/", (req, res) => {
   res.render("index");
+});
+
+app.get('/items', (req, res) => {
+  res.render('items');
 });
 
 app.get('/favourites', (req, res) => {
