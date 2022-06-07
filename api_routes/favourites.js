@@ -14,7 +14,7 @@ module.exports = (db) => {
 router.get("/:userID/favourites", (req, res) => {
   const userID = req.params.userID;
   let queryString =
-`SELECT * FROM items WHERE user_id = $1`
+`SELECT * FROM favourites WHERE user_id = $1`
   console.log(queryString);
   let values = [userID]
   db.query(queryString, values)
