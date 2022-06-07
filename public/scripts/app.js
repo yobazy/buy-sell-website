@@ -1,5 +1,5 @@
 // Client facing scripts here
-
+$(document).ready(function () {
 $
 (()=> {
   const renderItems = function(items) {
@@ -30,3 +30,5 @@ const loadItems = function() {
 loadItems();
 
 } )
+
+});
