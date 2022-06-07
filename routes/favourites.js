@@ -8,22 +8,28 @@
 const express = require('express');
 const router  = express.Router();
 
+
+
 module.exports = (db) => {
-  router.get("/user_id/favourites", (req, res) => {
-    let query = `SELECT * FROM favourites WHERE favourites.user_id = ${user_id}`;
-    console.log(query);
-    db.query(query)
-      .then(data => {
-        const items = data.rows;
-        res.json({ items });
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-  });
-  return router;
+router.get("/:userID/favourites", (req, res) => {
+  const userID = req.params.userID;
+  let queryString =
+`SELECT * FROM items WHERE user_id = $1`
+  console.log(queryString);
+  let values = [userID]
+  db.query(queryString, values)
+    .then(data => {
+      const items = data.rows;
+      res.json({ items });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
+return router;
 };
 
 
