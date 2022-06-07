@@ -7,7 +7,9 @@ const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
-
+// const cookieSession = require('cookie-session');
+// const bodyParser = require('body-parser');
+// const bcrypt = require('bcryptjs');
 // PG database client/connection setup
 const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
@@ -70,6 +72,12 @@ app.get("/", (req, res) => {
 app.get('/items', (req, res) => {
   res.render('items');
 });
+
+app.get('/login', (req, res) => {
+  res.render('login');
+});
+
+
 
 app.get('/favourites', (req, res) => {
   res.render('favourites');

@@ -36,7 +36,7 @@ p.reality {
   font-size: 24px;
 }
 
-button {
+button.header {
   border-radius: 25px;
   margin-top: 50px;
   margin-right: 20px;
@@ -46,11 +46,11 @@ button {
   font-size: 16px;
 }
 
-div.button {
+#header {
   margin-right: 20px;
 }
 
-div.button :hover {
+#header :hover {
 background-color: rgb(80, 73, 90);
 color: whitesmoke;
 }

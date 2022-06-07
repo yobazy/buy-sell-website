@@ -10,19 +10,20 @@ label {
   flex-direction: column;
 }
 
+
 div.layout {
   display: flex;
-  margin: 50px;
   font-family: Quantico, sans-serif;
   align-items: center;
-  border: solid black 5px;
   flex-direction: column;
+  border: solid black 5px;
   vertical-align: baseline;
 }
 
 div.main {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
 
 }
