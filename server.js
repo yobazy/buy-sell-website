@@ -46,14 +46,21 @@ app.use("/api/users", usersRoutes(db));
 // Note: mount other resources here, using the same pattern above
 app.use("/api/items", itemsRoutes(db));
 
-app.use("api/favourites", favouritesRoutes(db))
+app.use("/api/favourites", favouritesRoutes(db));
+
+
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
+
 app.get("/", (req, res) => {
   res.render("index");
+});
+
+app.get('/favourites', (req, res) => {
+  res.render('favourites');
 });
 
 app.listen(PORT, () => {
