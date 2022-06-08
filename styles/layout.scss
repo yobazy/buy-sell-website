@@ -4,3 +4,17 @@ body,
 html {
   margin: 0;
 }
+
+.filter-bar {
+  display: flex;
+  flex-direction: row;
+}
+
+#item-filter-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-spacer {
+  width: 20px;
+}

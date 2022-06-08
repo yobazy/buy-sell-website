@@ -41,7 +41,16 @@
 
   <!-- Page-specific (main) content here -->
   <main>
-
+    <section class="filter-bar">
+      <form id="item-filter-form" action="/api/items" method="POST">
+        <label for="min-price">Minimum Price</label>
+        <input type="number" name="min-price" placeholder="Minimum Price" id="min-price">
+        <div class="form-spacer"></div>
+        <label for="max-price">Maximum Price</label>
+        <input type="number" name="max-price" placeholder="Maximum Price" id="max-price">
+        <button class="filter-button" type="submit">Filter</button>
+      </form>
+    </section>
 
   <div class="items-grid"></div>
   </main>
