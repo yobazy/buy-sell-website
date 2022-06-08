@@ -6,25 +6,24 @@ $(document).ready(() => {
   console.log('jquery loaded')
   const addNewItem = function(item) {
 
-  const $item = $(`
-  <div class="layout">
-  <h2>${item.title}</h2>
-  <img src="${item.item_photo_url}" />
-  <h2>$${item.price}</h2>
-  <p>${item.description}</p>
-  <div class="button2">
-  <button class="button">Favourite</button>
-  <button class="button">Buy</button>
-  <button class="button">View</button>
-  </div>`)
-  return $item;
-  }
+    const $item = $(`
+      <div class="layout">
+      <h2>${item.title}</h2>
+      <img src="${item.item_photo_url}" />
+      <h2>$${item.price}</h2>
+      <p>${item.description}</p>
+      <div class="button2">
+      <button class="button">Favourite</button>
+      <button class="button">Buy</button>
+      <button class="button">View</button>
+      </div>`);
+    return $item;
+  };
 
   // render all items on page
   const renderItems = function(itemJSON) {
-    console.log("itemJSON: ", itemJSON);
-    let itemsArr = itemJSON.items
-    console.log("itemsArr: ", itemsArr);
+    let itemsArr = itemJSON.items;
+
     $('.items-grid').empty();
 
     for (let item of itemsArr) {
@@ -39,27 +38,44 @@ $(document).ready(() => {
       .then(function(items) {
         renderItems(items);
       })
-      .catch(function(err)  { console.error(err) });
+      .catch(function(err) { console.error(err); });
   };
 
-  // show favourite items for user
-  // THIS ASSUMES USER_ID IS = 1, NEED TO ADD FURTHER IMPLEMENTATION
+
+  //show user's uploaded items
+  //currently hard coded to user 3
+  const loadMyItems = function() {
+    $.ajax('/api/myitems', { method: 'GET' })
+      .then(function(myItems) {
+        renderItems(myItems);
+      })
+      .catch(function(err) { console.error(err); });
+  };
+
   const loadFavItems = function() {
     $.ajax('/api/favourites/', { method: 'GET' })
       .then(function(favItems) {
         renderItems(favItems);
       })
-      .catch(function(err)  { console.error(err) });
+      .catch(function(err) { console.error(err); });
   };
 
   loadItems();
 
+  $("#my_items").click(function(event) {
+    loadMyItems();
+  });
+
+
+  // show favourite items for user
+  // THIS ASSUMES USER_ID IS = 1, NEED TO ADD FURTHER IMPLEMENTATION
+
   $("#show_favourites").click(function(event) {
-    loadFavItems()
+    loadFavItems();
   });
 
   // MESSY code - we need to clean up locations of things at some point
-  $("#item-filter-form").submit(function (event) {
+  $("#item-filter-form").submit(function(event) {
     event.preventDefault();
 
     let minPrice = $("#item-filter-form").find("#min-price").val();
@@ -74,9 +90,9 @@ $(document).ready(() => {
       //clear errors
       $("#submit-errors").text("");
 
-      console.log("this inside app.js form code", $(this))
-      const data = $(this).serializeArray();
-      console.log("data inside app.js form code", data)
+      console.log("this inside app.js form code", $(this));
+      const data = $(this).serialize();
+      console.log("data inside app.js form code", data);
 
       $.ajax({
         type: "POST",
@@ -97,6 +113,8 @@ $(document).ready(() => {
       });
     }
   });
+
+  loadItems();
 });
 
 
