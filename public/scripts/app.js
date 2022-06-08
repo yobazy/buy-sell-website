@@ -3,6 +3,7 @@
 // function for creating new tweet element
 
 $(document).ready(() => {
+  console.log('jquery loaded')
   const addNewItem = function(item) {
 
     const $item = $(`
