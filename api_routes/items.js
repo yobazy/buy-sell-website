@@ -76,23 +76,22 @@ module.exports = (db) => {
       });
   });
 
-  router.get("/:itemID/create", (req, res) => {
-    const itemID = req.params.itemID
-    console.log("itemID", itemID);
-
+  router.post("/", (req, res) => {
+  console.log('reqBody', req.body)
     let queryString = `
-    INSERT INTO items (user_id, title, description, item_photo_url, price)
-    VALUES ($1, $2, $3, $4, $5 RETURNING *)
+    INSERT INTO items (title, description, item_photo_url, price)
+    VALUES ($1, $2, $3, $4) RETURNING *
     `;
     console.log("queryString: ", queryString);
-    let values = [itemID];
+    const {title, description, price, photo} = req.body;
+    let values = [title, description, photo, price];
     console.log("values: ", values);
 
     db.query(queryString, values)
       .then(data => {
         const item = data.rows;
         console.log("item: ", item)
-        res.json({ item });
+        res.redirect("/");
       })
       .catch(err => {
         res
