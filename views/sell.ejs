@@ -40,7 +40,7 @@
   <%- include('partials/_nav') %>
 
 <main class="sell_form">
-  <form action="/api/items" id="new-item-form">
+  <form action="/api/items" method="POST" id="new-item-form">
     <div class="new-item-form">
       <label for="new-item-form">Title</label>
       <input type="text" name="title" placeholder="Title">
@@ -59,7 +59,7 @@
 
     <div class="new-item-form">
       <label for="new-item-form">Image</label>
-      <input type='file'>
+      <input type='text' name="photo">
     </div>
 
 
