@@ -7,7 +7,7 @@ const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
-// const cookieSession = require('cookie-session');
+const session = require("cookie-session");
 // const bodyParser = require('body-parser');
 // const bcrypt = require('bcryptjs');
 // PG database client/connection setup
@@ -23,6 +23,12 @@ app.use(morgan("dev"));
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
+
+app.use(
+  session({
+    name: 'session',
+    keys: ['banana']
+  }));
 
 app.use(
   "/styles",
