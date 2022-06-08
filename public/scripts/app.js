@@ -3,8 +3,7 @@
 // function for creating new tweet element
 
 $(document).ready(() => {
-const addNewItem = function(item) {
-  console.log(item);
+  const addNewItem = function(item) {
 
   const $item = $(`
   <div class="layout">
@@ -18,134 +17,85 @@ const addNewItem = function(item) {
   <button class="button">View</button>
   </div>`)
   return $item;
-};
-
-// render all items on page
-const renderItems = function(itemJSON) {
-  console.log(itemJSON)
-  let itemsArr = itemJSON.items
-  $('.items-grid').empty();
-  for (let item of itemsArr) {
-    console.log('item',item)
-    let $item = addNewItem(item);
-    $('.items-grid').append($item);
   }
-};
 
-// get items to render
-const loadItems = function() {
-  $.ajax('/api/items/', { method: 'GET' })
-    .then(function(items) {
-      renderItems(items);
-    })
-    .catch(function(err)  { console.error(err) });
-};
+  // render all items on page
+  const renderItems = function(itemJSON) {
+    let itemsArr = itemJSON.items
 
+    $('.items-grid').empty();
 
-// get item object from item_id
-const getItemsByItemID = function(favId)  {
-  $.ajax('/api/items/', { method: 'GET' })
-    .then(function(items) {
-      let allItems = items.items
-      let arrOfFavs = []
-      console.log('made it')
-      console.log('all_items', allItems)
-      // for each item
-      for(let item of allItems) {
-        if(item.id === favId) {
-          console.log(item.id, 'this item is fav')
-          arrOfFavs.push(item)
-        }
-      }
-      let banana = {items: arrOfFavs}
-      console.log(banana)
-      return banana;
-    })
-    .catch(function(err)  { console.error(err) });
-};
+    for (let item of itemsArr) {
+      let $item = addNewItem(item);
+      $('.items-grid').append($item);
+    }
+  };
 
-// show favourite items for user
-// THIS ASSUMES USER_ID IS = 1, NEED TO ADD FURTHER IMPLEMENTATION
-const loadFavItems = function() {
-  $.ajax('/api/favourites/', { method: 'GET' })
-    .then(function(favItems) {
-      console.log('favitems',favItems.items)
-      renderItems(favItems);
-    })
-    .catch(function(err)  { console.error(err) });
-};
+  // get items to render
+  const loadItems = function() {
+    $.ajax('/api/items/', { method: 'GET' })
+      .then(function(items) {
+        renderItems(items);
+      })
+      .catch(function(err)  { console.error(err) });
+  };
 
+  // show favourite items for user
+  // THIS ASSUMES USER_ID IS = 1, NEED TO ADD FURTHER IMPLEMENTATION
+  const loadFavItems = function() {
+    $.ajax('/api/favourites/', { method: 'GET' })
+      .then(function(favItems) {
+        renderItems(favItems);
+      })
+      .catch(function(err)  { console.error(err) });
+  };
 
-
-
-  console.log("HELLLOOOOOO")
   loadItems();
   $("#show_favourites").click(function(event) {
     loadFavItems()
   });
 
+  // MESSY code - we need to clean up locations of things at some point
+  $("#item-filter-form").submit(function (event) {
+    event.preventDefault();
 
-})
+    let minPrice = $("#item-filter-form").find("#min-price").val();
+    let maxPrice = $("#item-filter-form").find("#max-price").val();
 
-// show favourite items for user
-// THIS ASSUMES USER_ID IS = 1, NEED TO ADD FURTHER IMPLEMENTATION
-// const favItems = function() {
-//   $.ajax('/api/favourites/', { method: 'GET' })
-//     .then(function(items) {
-//       renderItems(items);
-//     })
-//     .catch(function(err)  { console.error(err) });
-// };
+    // form validation: if form isn't correct, alert error, else clear errors and submit
+    if (minPrice < 0 || maxPrice < 0) {
+      $("#submit-errors").text(
+        "Price filters must be 0 or greater"
+      );
+    } else {
+      //clear errors
+      $("#submit-errors").text("");
 
+      console.log("this inside app.js form code", $(this))
+      const data = $(this).serialize();
+      console.log("data inside app.js form code", data)
 
+      $.ajax({
+        type: "POST",
+        url: "/api/items/filter",
+        data: data,
+        datatype: "query",
+      })
+      .done(function (responseData) {
+        console.log("success: ", responseData);
+        loadItems();
 
-$(document).ready(function()  {
-  console.log('this is happening')
-  loadItems();
-  $("#show_favourites").click(function(event) {
-    alert('favourites clicked')
-    //loadFavourites
+        //reset new tweet form text field
+        $("#item-filter-form").find("#min-price").val("");
+        $("#item-filter-form").find("#max-price").val("");
+      })
+      .fail(function (errorData) {
+        console.log("fail: ", errorData);
+      });
+    }
   });
 });
 
 
 
 
-
-// $
-// (()=> {
-//   const renderItems = function(items) {
-//     for (let item of items) {
-//       const $newItem = addNewItem(item);
-//       $('.items').append($newItem);
-//     }
-//   }
-//   const addNewItem = function(item) {
-//     const $item = (`
-//     <div class="layout">
-//       <h2>${item.title}</h2>
-//       <img src="${item.url}" />
-//       <h2>${item.price}</h2>
-//       <p>${item.description}</p>
-//       <div class="button2">
-//       <button class="button">Favourite</button>
-//       <button class="button">Buy</button>
-//       <button class="button">View</button>
-//     </div>`)
-
-//     return $item;
-//   };
-
-//   // render all items on page
-//   const loadItems = function() {
-//     $.get('/items', (items) => {
-//       renderItems(items);
-//     })
-//   }
-//   loadItems();
-
-// } )
-
-// $(document).ready(function()  {
-//   loadItems();
-// })

@@ -37,6 +37,11 @@ getAllItems = (db, req, res) => {
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
+    //console.log("GET to / - req", req)
+
+    const { filter } = req.body;
+    console.log("FILTER: ", filter)
+
     let query = `SELECT * FROM items`;
     console.log(query);
     db.query(query)
@@ -76,15 +81,23 @@ module.exports = (db) => {
       });
   });
 
+  router.post("/filter", (req, res) => {
+  console.log('reqBody', req.body)
+
+
+
+  });
+
   ///ROUTE FOR UPLOADING NEW ITEM - IT WORKS, PLEASE DON'T ALTER//
   router.post("/", (req, res) => {
-  console.log('reqBody', req.body)
+
     let queryString = `
     INSERT INTO items (title, description, item_photo_url, price)
     VALUES ($1, $2, $3, $4) RETURNING *
     `;
     console.log("queryString: ", queryString);
     const {title, description, price, photo} = req.body;
+
     let values = [title, description, photo, price];
     console.log("values: ", values);
 
