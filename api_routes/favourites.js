@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
   // const userID = req.params.userID;
 
   // use placeholder value for userID until login/cookies implementation
-  const userID = 1
+  const userID = req.session.user_id
 
   let queryString =`
   SELECT * FROM favourites
