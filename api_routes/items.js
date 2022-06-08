@@ -8,33 +8,6 @@
 const express = require('express');
 const router  = express.Router();
 
-getAllItems = (db, req, res) => {
-  const queryParams = [];
-
-  let queryString = `
-  SELECT items.*
-  FROM items
-  JOIN favourites ON items.id = favourites.item_id
-  JOIN users ON users.id = favourites.user_id
-  `;
-
-  console.log("queryString: ", queryString);
-  console.log("queryParams: ", queryParams);
-
-  db.query(queryString, queryParams)
-      .then(data => {
-        const item = data.rows;
-        console.log("item: ", item)
-        res.json({ item });
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-}
-
-
 module.exports = (db) => {
   router.get("/", (req, res) => {
     //console.log("GET to / - req", req)
@@ -82,8 +55,55 @@ module.exports = (db) => {
   });
 
   router.post("/filter", (req, res) => {
-  console.log('reqBody', req.body)
+    console.log('req.body', req.body);
+    console.log('req.body["min-price"]', req.body["min-price"]);
+    console.log('req.body["max-price"]', req.body["max-price"]);
 
+    const queryParams = [];
+    let queryString = `
+    SELECT *
+    FROM items
+    `;
+
+    //determine if need to add an AND or a WHERE
+    let whereAlreadyExists = false;
+
+    if (req.body["min-price"]) {
+
+      const minPrice = req.body["min-price"];
+      queryParams.push(`${minPrice}`);
+      queryString += `WHERE price >= $${queryParams.length}`;
+      whereAlreadyExists = true;
+
+    }
+
+    if (req.body["max-price"]) {
+
+      const maxPrice = req.body["max-price"];
+      queryParams.push(`${maxPrice}`);
+
+      if (whereAlreadyExists) {
+        queryString +=` AND price <= $${queryParams.length}`;
+      } else {
+        queryString +=`WHERE price <= $${queryParams.length}`;
+      }
+
+    }
+
+    console.log("queryString: ", queryString);
+    console.log("queryParams: ", queryParams);
+
+    db.query(queryString, queryParams)
+        .then(data => {
+          const item = data.rows;
+          console.log("item: ", item)
+          res.json({ item });
+        })
+        .catch(err => {
+          res
+            .status(500)
+            .json({ error: err.message });
+        });
 
 
   });

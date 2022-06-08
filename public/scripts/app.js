@@ -72,7 +72,7 @@ $(document).ready(() => {
       $("#submit-errors").text("");
 
       console.log("this inside app.js form code", $(this))
-      const data = $(this).serialize();
+      const data = $(this).serializeArray();
       console.log("data inside app.js form code", data)
 
       $.ajax({
