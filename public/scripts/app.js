@@ -39,8 +39,6 @@ const loadItems = function() {
     .catch(function(err)  { console.error(err) });
 };
 
-
-
 const sellItem = function (item) {
   console.log("Sell item running")
   return $.ajax({
@@ -51,22 +49,64 @@ const sellItem = function (item) {
   })
 }
 
+// get item object from item_id
+const getItemsByItemID = function(favId)  {
+  $.ajax('/api/items/', { method: 'GET' })
+    .then(function(items) {
+      let allItems = items.items
+      let arrOfFavs = []
+      console.log('made it')
+      console.log('all_items', allItems)
+      // for each item
+      for(let item of allItems) {
+        if(item.id === favId) {
+          console.log(item.id, 'this item is fav')
+          arrOfFavs.push(item)
+        }
+      }
+      let banana = {items: arrOfFavs}
+      console.log(banana)
+      return banana;
+    })
+    .catch(function(err)  { console.error(err) });
+};
+
+// show favourite items for user
+// THIS ASSUMES USER_ID IS = 1, NEED TO ADD FURTHER IMPLEMENTATION
+const loadFavItems = function() {
+  $.ajax('/api/favourites/', { method: 'GET' })
+    .then(function(favItems) {
+      console.log('favitems',favItems.items)
+      let favs = getItemsByItemID(1)
+      console.log('favs',favs)
+      renderItems(favs);
+    })
+    .catch(function(err)  { console.error(err) });
+};
+
+
+
 $(document).ready(() => {
   console.log("HELLLOOOOOO")
-$('#new-item-form').on('submit', (evt) => {
-  evt.preventDefault();
-  let data = $('#new-item-form').serialize()
-  console.log("Send Data", data)
-    sellItem(data)
-  .then(() => {
-    addNewItem(data)
-    console.log("addNewItem")
+  loadItems();
+  $("#show_favourites").click(function(event) {
+    alert('favourites clicked')
+    loadFavItems()
+  });
+  $('#new-item-form').on('submit', (evt) => {
+    evt.preventDefault();
+    let data = $('#new-item-form').serialize()
+    console.log("Send Data", data)
+      sellItem(data)
+    .then(() => {
+      addNewItem(data)
+      console.log("addNewItem")
+    })
+    .then (() => {
+      renderItems;
+    })
+    .catch(function(err)  { console.error(err) })
   })
-  .then (() => {
-    renderItems;
-  })
-  .catch(function(err)  { console.error(err) })
-})
 })
 
 // show favourite items for user
