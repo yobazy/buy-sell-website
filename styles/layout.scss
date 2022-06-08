@@ -5,16 +5,25 @@ html {
   margin: 0;
 }
 
+
+// -------------- PRICE FILTER RELATED ---------------
 .filter-bar {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 #item-filter-form {
   display: flex;
   flex-direction: row;
+
 }
 
 .form-spacer {
   width: 20px;
 }
+
+.submit-errors {
+  color: red
+}
+// -------------- --------------------- ---------------

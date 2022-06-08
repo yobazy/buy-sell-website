@@ -60,8 +60,6 @@ $(document).ready(() => {
       .catch(function(err) { console.error(err); });
   };
 
-  loadItems();
-
   $("#my_items").click(function(event) {
     loadMyItems();
   });
@@ -74,40 +72,40 @@ $(document).ready(() => {
     loadFavItems();
   });
 
-  // MESSY code - we need to clean up locations of things at some point
+  // Even listener for price filter form submit button
   $("#item-filter-form").submit(function(event) {
+
+    // prevent form from actually submitting
     event.preventDefault();
 
+    // extract min and max prices from form
     let minPrice = $("#item-filter-form").find("#min-price").val();
     let maxPrice = $("#item-filter-form").find("#max-price").val();
 
     // form validation: if form isn't correct, alert error, else clear errors and submit
     if (minPrice < 0 || maxPrice < 0) {
-      $("#submit-errors").text(
+      $("#submit-errors1").text(
         "Price filters must be 0 or greater"
       );
     } else {
       //clear errors
-      $("#submit-errors").text("");
+      $("#submit-errors1").text("");
 
-      console.log("this inside app.js form code", $(this));
       const data = $(this).serialize();
-      console.log("data inside app.js form code", data);
 
+      // sent ajax request
       $.ajax({
         type: "POST",
         url: "/api/items/filter",
         data: data,
         datatype: "query",
       })
-      .done(function (responseData) {
-        console.log("success: ", responseData);
-        renderItems(responseData);
 
-        //reset new tweet form text field
-        $("#item-filter-form").find("#min-price").val("");
-        $("#item-filter-form").find("#max-price").val("");
+      // when receive response, re-render items list
+      .done(function (responseData) {
+        renderItems(responseData);
       })
+      // if error, log error
       .fail(function (errorData) {
         console.log("fail: ", errorData);
       });
@@ -115,6 +113,7 @@ $(document).ready(() => {
   });
 
   loadItems();
+
 });
 
 
