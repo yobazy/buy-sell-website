@@ -17,9 +17,10 @@ router.get("/", (req, res) => {
   // use placeholder value for userID until login/cookies implementation
   const userID = 1
 
-  let queryString =
-  `SELECT * FROM favourites
-  WHERE user_id = $1`;
+  let queryString =`
+  SELECT * FROM favourites
+  JOIN items ON item_id = items.id
+  WHERE favourites.user_id = $1`;
   console.log(queryString);
 
   let values = [userID]
