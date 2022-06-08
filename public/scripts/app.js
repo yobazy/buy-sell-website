@@ -22,8 +22,9 @@ $(document).ready(() => {
 
   // render all items on page
   const renderItems = function(itemJSON) {
+    console.log("itemJSON: ", itemJSON);
     let itemsArr = itemJSON.items
-
+    console.log("itemsArr: ", itemsArr);
     $('.items-grid').empty();
 
     for (let item of itemsArr) {
@@ -52,6 +53,7 @@ $(document).ready(() => {
   };
 
   loadItems();
+
   $("#show_favourites").click(function(event) {
     loadFavItems()
   });
@@ -84,7 +86,7 @@ $(document).ready(() => {
       })
       .done(function (responseData) {
         console.log("success: ", responseData);
-        loadItems();
+        renderItems(responseData);
 
         //reset new tweet form text field
         $("#item-filter-form").find("#min-price").val("");
