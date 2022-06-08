@@ -98,3 +98,10 @@ app.get('/myitems', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
+app.post("/login", (req, res) => {
+  let inputPass = req.body['password'];
+
+  req.session.user_id = 1
+  res.render('index')
+});
