@@ -70,9 +70,7 @@ const loadFavItems = function() {
   $.ajax('/api/favourites/', { method: 'GET' })
     .then(function(favItems) {
       console.log('favitems',favItems.items)
-      let favs = getItemsByItemID(1)
-      console.log('favs',favs)
-      renderItems(favs);
+      renderItems(favItems);
     })
     .catch(function(err)  { console.error(err) });
 };
@@ -83,7 +81,6 @@ const loadFavItems = function() {
   console.log("HELLLOOOOOO")
   loadItems();
   $("#show_favourites").click(function(event) {
-    alert('favourites clicked')
     loadFavItems()
   });
 
