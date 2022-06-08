@@ -8,7 +8,7 @@ INSERT INTO users (name, email, is_admin) VALUES ('Micheal', 'mike@gmail.com', f
 
 
 -- items table seeds here
-INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (1, 'Fox', 'A pretty cool fox avatar', '/images/ceilidhe_avatar.png', 10);
+INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (1, 'Fox', 'A pretty cool fox avatar', '/images/foxavatar.jpeg', 10);
 INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (1, 'Anime Girl', 'A pretty cool anime girl avatar', '/images/anigirl.jpg', 11);
 INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (2, 'Dog', 'A pretty cool dog avatar', '/images/dog.jpg', 12);
 INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (2, 'Anime Boy', 'A pretty cool anime boy avatar', '/images/aniboy.jpeg', 11);

@@ -1,6 +1,8 @@
 // Client facing scripts here
 
 // function for creating new tweet element
+
+$(document).ready(() => {
 const addNewItem = function(item) {
   console.log(item);
 
@@ -39,15 +41,29 @@ const loadItems = function() {
     .catch(function(err)  { console.error(err) });
 };
 
-const sellItem = function (item) {
-  console.log("Sell item running")
-  return $.ajax({
-    method: "POST",
-    url: "/api/items",
-    data: item
 
-  })
-}
+// get item object from item_id
+const getItemsByItemID = function(favId)  {
+  $.ajax('/api/items/', { method: 'GET' })
+    .then(function(items) {
+      let allItems = items.items
+      let arrOfFavs = []
+      console.log('made it')
+      console.log('all_items', allItems)
+      // for each item
+      for(let item of allItems) {
+        if(item.id === favId) {
+          console.log(item.id, 'this item is fav')
+          arrOfFavs.push(item)
+        }
+      }
+      let banana = {items: arrOfFavs}
+      console.log(banana)
+      return banana;
+    })
+    .catch(function(err)  { console.error(err) });
+};
+
 // show favourite items for user
 // THIS ASSUMES USER_ID IS = 1, NEED TO ADD FURTHER IMPLEMENTATION
 const loadFavItems = function() {
@@ -61,26 +77,14 @@ const loadFavItems = function() {
 
 
 
-$(document).ready(() => {
+
   console.log("HELLLOOOOOO")
   loadItems();
   $("#show_favourites").click(function(event) {
     loadFavItems()
   });
-  $('#new-item-form').on('submit', (evt) => {
-    evt.preventDefault();
-    let data = $('#new-item-form').serialize()
-    console.log("Send Data", data)
-      sellItem(data)
-    .then(() => {
-      addNewItem(data)
-      console.log("addNewItem")
-    })
-    .then (() => {
-      renderItems;
-    })
-    .catch(function(err)  { console.error(err) })
-  })
+
+
 })
 
 // show favourite items for user
