@@ -45,7 +45,10 @@ app.use(express.static("public"));
 // APIs
 const usersApiRoutes = require("./api_routes/users");
 const itemsApiRoutes = require("./api_routes/items");
-const favouritesApiRoutes = require("./api_routes/favourites");
+console.log('itemsroute', itemsApiRoutes)
+const favouritesApiRoutes = require("./api_routes/favourites")
+const myItemsRoutes = require("./api_routes/myitems");
+console.log('myitems', myItemsRoutes)
 
 
 // Content
@@ -60,6 +63,7 @@ const favouritesApiRoutes = require("./api_routes/favourites");
 app.use("/api/users", usersApiRoutes(db));
 app.use("/api/items", itemsApiRoutes(db));
 app.use("/api/favourites", favouritesApiRoutes(db));
+app.use("/api/myitems", myItemsRoutes(db));
 
 // Content Routes
 // app.use("/users", itemsRoutes(db));
