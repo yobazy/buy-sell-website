@@ -76,6 +76,7 @@ module.exports = (db) => {
       });
   });
 
+  ///ROUTE FOR UPLOADING NEW ITEM - IT WORKS, PLEASE DON'T ALTER//
   router.post("/", (req, res) => {
   console.log('reqBody', req.body)
     let queryString = `
