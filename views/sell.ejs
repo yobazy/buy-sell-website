@@ -37,37 +37,29 @@
 </head>
 
 <body>
-  <nav>
-  <span><p class="reason">Reasonable</p> <p class="reality">Realities</p></span>
-  <div class="button">
-  <button>Login</button>
-  <button>Sell</button>
-  <button>My Purchases</button>
-  <button>My Favourites</button>
-</div>
-</nav>
+  <%- include('partials/_nav') %>
 
 <main class="sell_form">
-  <form action="/api/items" id="new-item-form" class="new-item-form">
+  <form action="/api/items" id="new-item-form">
     <div class="new-item-form">
       <label for="new-item-form">Title</label>
-      <input type="text" name="title" placeholder="Title" id="new-item-form__title">
+      <input type="text" name="title" placeholder="Title">
     </div>
 
     <div class="new-item-form">
       <label for="new-item-form">Description</label>
-      <textarea placeholder="Description" name="description" id="new-item-form" cols="30" rows="5"></textarea>
+      <textarea placeholder="Description" name="description" cols="30" rows="5"></textarea>
     </div>
 
 
     <div class="new-item-form">
       <label for="new-item-form">Price</label>
-      <input placeholder="Price" type="number" name="price" id="new_item_form__price">
+      <input placeholder="Price" type="number" name="price">
     </div>
 
     <div class="new-item-form">
       <label for="new-item-form">Image</label>
-      <input placeholder="Image" type="text" name="item_photo_url" id="new-item-form">
+      <input type='file'>
     </div>
 
 
