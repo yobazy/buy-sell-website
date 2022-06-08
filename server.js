@@ -100,8 +100,9 @@ app.listen(PORT, () => {
 });
 
 app.post("/login", (req, res) => {
+  // user input password (unsused)
   let inputPass = req.body['password'];
 
-  req.session.user_id = 1
+  req.session.user_id = 2
   res.render('index')
 });
