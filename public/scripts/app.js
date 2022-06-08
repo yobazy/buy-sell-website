@@ -15,8 +15,10 @@ $(document).ready(() => {
       <div class="button2">
       <button class="button">Favourite</button>
       <button class="button">Buy</button>
-      <button class="button">View</button>
       </div>`);
+    if(item.sold_status == true)  {
+      $item.append('<h1>Sold Out!</h1>')
+    }
     return $item;
   };
 
