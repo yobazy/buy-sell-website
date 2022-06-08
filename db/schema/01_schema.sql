@@ -18,7 +18,8 @@ CREATE TABLE items (
   title VARCHAR(255) NOT NULL,
   description TEXT NOT NULL,
   item_photo_url TEXT NOT NULL,
-  price INTEGER NOT NULL
+  price INTEGER NOT NULL,
+  sold_status BOOLEAN NOT NULL DEFAULT false
 );
 
 -- Drop and recreate favourites table
