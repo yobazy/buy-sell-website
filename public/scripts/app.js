@@ -88,30 +88,6 @@ const loadFavItems = function() {
   });
 
 
-  // const sellItem = function (item) {
-  //   console.log("Sell item running")
-  //   return $.ajax({
-  //     method: "POST",
-  //     url: "/api/items",
-  //     data: item
-
-  //   })
-  // }
-
-  // $('#new-item-form').on('submit', (evt) => {
-  //   evt.preventDefault();
-  //   let data = $('#new-item-form').serialize()
-  //   console.log("Send Data", data)
-  //     sellItem(data)
-  //   .then(() => {
-  //     addNewItem(data)
-  //     console.log("addNewItem")
-  //   })
-  //   .then (() => {
-  //     renderItems;
-  //   })
-  //   .catch(function(err)  { console.error(err) })
-  // })
 })
 
 // show favourite items for user
