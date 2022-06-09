@@ -13,8 +13,6 @@ const router  = express.Router();
 module.exports = (db) => {
 router.get("/", (req, res) => {
   // const userID = req.params.userID;
-
-  // use placeholder value for userID until login/cookies implementation
   const userID = req.session.user_id
 
   let queryString =`
@@ -29,6 +27,35 @@ router.get("/", (req, res) => {
       const items = data.rows;
       console.log(items)
       res.json({ items });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
+router.post("/add", (req, res) => {
+  console.log(req.body)
+
+  let queryString = `
+  UPSERT INTO favourites (user_id, item_id)
+  VALUES ($1, $2)
+  `;
+
+  console.log("queryString: ", queryString);
+
+  const item_id = req.body.item_id
+  const user_id = req.session.user_id;
+  console.log(item_id, user_id)
+
+  let values = [user_id, item_id];
+  console.log("values: ", values);
+
+  db.query(queryString, values)
+    .then(data => {
+      const item = data.rows;
+      console.log("item added: ", item)
     })
     .catch(err => {
       res
