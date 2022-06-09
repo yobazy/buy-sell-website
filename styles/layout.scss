@@ -9,6 +9,13 @@ html {
   height: 10px;
 }
 
+.artist-price {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
 
 // -------------- PRICE FILTER RELATED ---------------
 .filter-bar {

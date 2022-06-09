@@ -8,7 +8,10 @@ $(document).ready(() => {
       <div class="layout">
       <h2>${item.title}</h2>
       <img src="${item.item_photo_url}" />
-      <h2>$${item.price/100}</h2>
+      <span class="artist-price">
+        <p id="maker">Maker:${item.user_name}</p>
+        <h2>$${item.price/100}</h2>
+      </span>
       <p>${item.description}</p>
       <div class="button2">
       <button class="button">Favourite</button>
