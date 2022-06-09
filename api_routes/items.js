@@ -127,13 +127,9 @@ module.exports = (db) => {
     INSERT INTO items (user_id, title, description, item_photo_url, price)
     VALUES ($1, $2, $3, $4, $5) RETURNING *
     `;
-    console.log("queryString: ", queryString);
     const {title, description, price, photo} = req.body;
     const user_id = req.session.user_id;
-
     let values = [user_id, title, description, photo, price*100];
-    console.log("values: ", values);
-
     db.query(queryString, values)
       .then(data => {
         const item = data.rows;
@@ -147,31 +143,6 @@ module.exports = (db) => {
       });
   });
 
-
-  router.get("/:itemID/delete", (req, res) => {
-    const itemID = req.params.itemID
-    console.log("itemID", itemID);
-
-    let queryString = `
-    DELETE FROM items
-    WHERE id = $1
-    `;
-    console.log("queryString: ", queryString);
-    let values = [itemID];
-    console.log("values: ", values);
-
-    db.query(queryString, values)
-      .then(data => {
-        const item = data.rows;
-        console.log("item: ", item)
-        res.json({ item });
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-  });
 
   return router;
 };

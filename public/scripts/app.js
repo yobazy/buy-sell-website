@@ -36,8 +36,8 @@ $(document).ready(() => {
       </span>
       <p>${item.description}</p>
       <div class="button2">
-      <button class="button">Mark as Sold</button>
-      <button class="button">Delete</button>
+      <button class="sold">Mark as Sold</button>
+      <button class="delete" data-itemid = ${item.id}>Delete</button>
       </div>`);
     return $myItem;
   };
@@ -99,6 +99,7 @@ $(document).ready(() => {
       });
   };
 
+
   $("#my_items").click(function (event) {
     loadMyItems();
   });
@@ -158,6 +159,20 @@ $(document).ready(() => {
         });
     }
   });
+
+  $(document).on("click", ".delete", function (event) {
+    const itemID = $(this).data("itemid")
+    console.log("itemid", itemID)
+    $.ajax({
+      type: "POST",
+      url: "/api/myitems/delete",
+      data: {itemID},
+      datatype: "query",
+    })
+    .then(() => {
+      document.location = "/";
+    })
+  })
 
   loadItems();
   renderMyItems();
