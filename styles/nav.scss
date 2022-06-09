@@ -53,13 +53,18 @@ div.navbar {
   flex-direction: row;
 }
 
-#header {
+div.button {
   margin-right: 20px;
 }
 
-#header :hover {
-background-color: rgb(80, 73, 90);
-color: whitesmoke;
+button.header :hover {
+  background-color: rgb(80, 73, 90);
+  color: whitesmoke;
 }
 
+
+div.navbar :hover {
+  background-color: rgb(80, 73, 90);
+  color: whitesmoke;
+}
 
