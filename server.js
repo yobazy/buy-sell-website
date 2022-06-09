@@ -90,13 +90,12 @@ app.get("/", (req, res) => {
     });
 });
 
-
-// app.get('/items', (req, res) => {
-//   res.render('items');
-// });
+app.post("/login", (req, res) => {
+  req.session.user_id = req.body.user;
+  res.redirect('/');
+});
 
 app.get('/login', (req, res) => {
-
   res.render('login');
 });
 
@@ -104,21 +103,9 @@ app.get('/sell', (req, res) => {
   res.render('sell');
 });
 
-// app.get('/favourites', (req, res) => {
-//   res.render('favourites');
-// });
 
-// app.get('/myitems', (req, res) => {
-//   res.render('myitems');
-// });
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
-});
-
-app.post("/login", (req, res) => {
-  console.log('req.body', req.body)
-  req.session.user_id = req.body.user;
-  console.log(req.session);
-  res.redirect('/');
 });
