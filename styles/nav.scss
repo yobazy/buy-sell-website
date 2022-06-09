@@ -49,9 +49,9 @@ button.header {
   font-size: 16px;
 }
 
-button.header :hover {
-  background-color: rgb(80, 73, 90);
-  color: whitesmoke;
+div.navbar :hover {
+  background-color: transparent;
+  color: rgb(125, 124, 127);
 }
 
 div.navbar {
@@ -63,11 +63,4 @@ div.button {
   margin-right: 20px;
 }
 
-
-
-
-// div.navbar :hover {
-//   background-color: rgb(80, 73, 90);
-//   color: whitesmoke;
-// }
 
