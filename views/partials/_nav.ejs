@@ -44,8 +44,8 @@
       <span><p class="reason">Reasonable</p> <p class="reality">Realities</p></span>
       <div class="button" id="header">
       <% if (!user) { %>
-      <form method="GET" action="/">
-        <button class="header" id="login-button" href="/">Login</button>
+      <form method="GET" action="/login">
+        <button class="header" id="login-button" href="/login">Login</button>
       </form>
       <% } else if (user.is_admin) { %>
       <button class="header" >Logout</button>
