@@ -1,6 +1,6 @@
-// Client facing scripts
+// Client facing scripts here
 
-// On page load
+// function for creating new item
 $(document).ready(() => {
 
   // populate item card with item and maker info
@@ -32,7 +32,6 @@ $(document).ready(() => {
       <img src="${item.item_photo_url}"/>
       <h2>${item.title}</h2>
       <span class="artist-price">
-        <p id="maker">Maker:${item.user_name}</p>
         <h2>$${item.price/100}</h2>
       </span>
       <p>${item.description}</p>
