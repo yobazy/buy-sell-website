@@ -39,13 +39,19 @@ p.reality {
 }
 
 button.header {
-  border-radius: 25px;
+  border: none;
+  background-color: transparent;
+  color: whitesmoke;
   margin-top: 50px;
   margin-right: 20px;
-  border: 2px solid whitesmoke;
   padding: 10px;
   font-family: Quantico, sans-serif;
   font-size: 16px;
+}
+
+button.header :hover {
+  background-color: rgb(80, 73, 90);
+  color: whitesmoke;
 }
 
 div.navbar {
@@ -57,14 +63,11 @@ div.button {
   margin-right: 20px;
 }
 
-button.header :hover {
-  background-color: rgb(80, 73, 90);
-  color: whitesmoke;
-}
 
 
-div.navbar :hover {
-  background-color: rgb(80, 73, 90);
-  color: whitesmoke;
-}
+
+// div.navbar :hover {
+//   background-color: rgb(80, 73, 90);
+//   color: whitesmoke;
+// }
 
