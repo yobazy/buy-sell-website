@@ -38,22 +38,22 @@
   <body>
     <nav>
       <span><p class="reason">Reasonable</p> <p class="reality">Realities</p></span>
-      <div class="button" id="header">
+      <div class="button">
       <% if (!user) { %>
-      <form method="GET" action="/login">
-        <button class="header" id="login-button" href="/login">Login</button>
+      <form class="nav" method="GET" action="/login">
+        <button class="header" href="/login">Login</button>
       </form>
       <% } else if (user.is_admin) { %>
-      <form method="POST" action="/logout"><button class="header" id="logout-button" href="/logout">Logout</button></form>
-      <form method="GET" action="/"><button class="header" id="home-button" href="/">Home</button></form>
-      <form method="GET" action="/sell">
-      <button class="header" id="sell-button" href="/sell">Sell</button></form>
+      <div class="navbar"><form class="nav" method="POST" action="/logout"><button class="header" href="/logout">Logout</button></form>
+      <form class="nav" method="GET" action="/"><button class="header" href="/">Home</button></form>
+      <form class="nav" method="GET" action="/sell">
+      <button class="header" href="/sell">Sell</button></form>
       <button class="header" id="my_items" >My Items</button>
-      <button class="header" id="show_favourites">My Favourites</button>
+      <button class="header" id="show_favourites">My Favourites</button></div>
       <% } else {%>
-        <form method="GET" action="/"><button class="header" id="home-button" href="/">Home</button></form>
+        <div class="navbar"><form class="nav" method="GET" action="/"><button class="header" id="home-button" href="/">Home</button></form>
         <button class="header" id="show_favourites">My Favourites</button>
-        <form method="POST" action="/logout"><button class="header" id="logout-button" href="/logout">Logout</button></form>
+        <form class="nav" method="POST" action="/logout"><button class="header" href="/logout">Logout</button></form></div>
       <% } %>
     </div>
     </nav>
