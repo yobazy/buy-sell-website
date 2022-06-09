@@ -1,0 +1,39 @@
+.items-grid {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+img {
+  max-width: 250px;
+  max-height: 250px;
+  object-fit: cover;
+}
+
+.item-spacer {
+  height: 10px;
+}
+
+.artist-price {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fa-heart {
+  color: #ada6a8
+}
+
+.fa-heart-hover {
+  color: #f03e70
+}
+
+#favourite-heart {
+  cursor: pointer
+}
