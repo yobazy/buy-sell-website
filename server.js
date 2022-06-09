@@ -128,7 +128,7 @@ app.get('/sell', (req, res) => {
 
 app.post('/logout', (req, res) => {
   req.session.user_id = null;
-  res.redirect('/login');
+  res.redirect('/');
 })
 
 
