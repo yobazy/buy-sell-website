@@ -14,7 +14,13 @@ module.exports = (db) => {
 
     const { filter } = req.body;
 
-    let query = `SELECT * FROM items`;
+    let query = `
+    SELECT items.id as id, items.title as title, items.description as description, items.item_photo_url as item_photo_url, items.price as price, users.name as user_name, users.email as email
+    FROM items
+    JOIN users ON items.user_id = users.id
+    GROUP BY items.id, users.id
+    ORDER BY items.price;
+    `;
     console.log(query);
     db.query(query)
       .then(data => {

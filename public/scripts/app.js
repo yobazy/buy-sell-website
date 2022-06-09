@@ -26,7 +26,7 @@ $(document).ready(() => {
   // render all items on page
   const renderItems = function(itemJSON) {
     let itemsArr = itemJSON.items;
-
+    console.log("ITEMSARR: ", itemsArr);
     $('.items-grid').empty();
 
     for (let item of itemsArr) {
