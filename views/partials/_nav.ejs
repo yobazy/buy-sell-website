@@ -44,12 +44,14 @@
         <button class="header" href="/login">Login</button>
       </form>
       <% } else if (user.is_admin) { %>
-      <div class="navbar"><form class="nav" method="POST" action="/logout"><button class="header" href="/logout">Logout</button></form>
+      <div class="navbar">
       <form class="nav" method="GET" action="/"><button class="header" href="/">Home</button></form>
       <form class="nav" method="GET" action="/sell">
       <button class="header" href="/sell">Sell</button></form>
       <button class="header" id="my_items" >My Items</button>
-      <button class="header" id="show_favourites">My Favourites</button></div>
+      <button class="header" id="show_favourites">My Favourites</button>
+      <form class="nav" method="POST" action="/logout"><button class="header" href="/logout">Logout</button></form>
+    </div>
       <% } else {%>
         <div class="navbar"><form class="nav" method="GET" action="/"><button class="header" id="home-button" href="/">Home</button></form>
         <button class="header" id="show_favourites">My Favourites</button>

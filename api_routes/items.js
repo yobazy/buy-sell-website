@@ -130,7 +130,7 @@ module.exports = (db) => {
     console.log("queryString: ", queryString);
     const {title, description, price, photo} = req.body;
 
-    let values = [title, description, photo, price];
+    let values = [title, description, photo, price*100];
     console.log("values: ", values);
 
     db.query(queryString, values)

@@ -3,14 +3,12 @@
 // function for creating new tweet element
 
 $(document).ready(() => {
-  console.log('jquery loaded')
   const addNewItem = function(item) {
-    console.log("ITEMMMM", item);
     const $item = $(`
       <div class="layout">
       <h2>${item.title}</h2>
       <img src="${item.item_photo_url}" />
-      <h2>$${item.price}</h2>
+      <h2>$${item.price/100}</h2>
       <p>${item.description}</p>
       <div class="button2">
       <button class="button">Favourite</button>
@@ -26,7 +24,6 @@ $(document).ready(() => {
   // render all items on page
   const renderItems = function(itemJSON) {
     let itemsArr = itemJSON.items;
-    console.log("ITEMSARR: ", itemsArr);
     $('.items-grid').empty();
 
     for (let item of itemsArr) {
