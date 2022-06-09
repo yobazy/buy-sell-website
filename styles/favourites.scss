@@ -29,33 +29,3 @@ div.main {
   padding-left: 70px;
   padding-right: 70px;
 }
-
-button.button {
-  display: flex;
-  margin-left: 10px;
-  margin-right: 10px;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 25px;
-  padding: 10px;
-  font-family: Quantico, sans-serif;
-  font-size: 16px;
-}
-
-
-div.button2 {
-  display: flex;
-  margin-top: 10px;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 25px;
-  padding: 10px;
-  padding-top: 10px;
-  font-family: Quantico, sans-serif;
-  font-size: 16px;
-}
-
-div.button2 :hover {
-  background-color: rgb(80, 73, 90);
-  color: whitesmoke;
-}
