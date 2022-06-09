@@ -1,4 +1,3 @@
-<!--
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +6,7 @@
   <!-- Meta Information -->
   <title>Reasonable Realities</title>
 
-  <!-- External CSS -->
+    <!-- External CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     type="text/css" />
 
@@ -46,13 +45,15 @@
       </form>
       <% } else if (user.is_admin) { %>
       <form method="POST" action="/logout"><button class="header" id="logout-button" href="/logout">Logout</button></form>
-      <form method="GET" action="/sell"></form>
-      <button class="header" id="sell-button" href="/sell">Sell</button>
+      <form method="GET" action="/"><button class="header" id="home-button" href="/">Home</button></form>
+      <form method="GET" action="/sell">
+      <button class="header" id="sell-button" href="/sell">Sell</button></form>
       <button class="header" id="my_items" >My Items</button>
       <button class="header" id="show_favourites">My Favourites</button>
       <% } else {%>
+        <form method="GET" action="/"><button class="header" id="home-button" href="/">Home</button></form>
         <button class="header" id="show_favourites">My Favourites</button>
-        <button class="header" >Logout</button>
+        <form method="POST" action="/logout"><button class="header" id="logout-button" href="/logout">Logout</button></form>
       <% } %>
     </div>
     </nav>

@@ -6,6 +6,20 @@
   justify-content: center;
 }
 
+span {
+  display: flex;
+  position: fixed;
+  flex-direction: row;
+  height: 100px;
+  width: 100%;
+  padding: 1.5em;
+  padding-top: 0em;
+  color: #FFFFFF;
+  background-color: #000000;
+  background-image: url(http://www.transparenttextures.com/patterns/stucco.png);
+  justify-content: space-between;
+  top: 0;
+}
 
 div.form-group.mb-2{
   margin-top: 250px;
