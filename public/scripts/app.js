@@ -25,6 +25,23 @@ $(document).ready(() => {
     return $item;
   };
 
+  const myItems = function(item) {
+    const $myItem = $(`
+      <div class="layout">
+      <h2>${item.title}</h2>
+      <img src="${item.item_photo_url}" />
+      <span class="artist-price">
+        <p id="maker">Maker:${item.user_name}</p>
+        <h2>$${item.price/100}</h2>
+      </span>
+      <p>${item.description}</p>
+      <div class="button2">
+      <button class="button">Mark as Sold</button>
+      <button class="button">Delete</button>
+      </div>`);
+    return $myItem;
+  };
+
   // render all items on page
   const renderItems = function (itemJSON) {
     let itemsArr = itemJSON.items;
@@ -34,6 +51,18 @@ $(document).ready(() => {
       let $item = addNewItem(item);
       $(".items-grid").append($item);
       $(".items-grid").append($(`<div class="item-spacer"></div>`));
+    }
+  };
+
+  // render admin's items on page
+  const renderMyItems = function(itemJSON) {
+    let itemsArr = itemJSON.items;
+    $('.items-grid').empty();
+
+    for (let item of itemsArr) {
+      let $item = myItems(item);
+      $('.items-grid').append($item);
+      $('.items-grid').append($(`<div class="item-spacer"></div>`))
     }
   };
 
