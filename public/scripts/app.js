@@ -3,93 +3,98 @@
 // function for creating new tweet element
 
 $(document).ready(() => {
-  const addNewItem = function(item) {
+  const addNewItem = function (item) {
     const $item = $(`
       <div class="layout">
       <h2>${item.title}</h2>
       <img src="${item.item_photo_url}" />
       <span class="artist-price">
         <p id="maker">Maker:${item.user_name}</p>
-        <h2>$${item.price/100}</h2>
+        <h2>$${item.price / 100}</h2>
       </span>
       <p>${item.description}</p>
       <div class="button2">
-      <button class="button">Favourite</button>
-      <a href="mailto:${item.email}?subject=Interested in your ${item.title} avatar">Message Seller</a>
-      <button class="button">View</button>
+      <i class="fa-solid fa-heart"></i>
+      <a href="mailto:${item.email}?subject=Interested in your ${
+      item.title
+    } avatar">Message Seller</a>
       </div>`);
-    if(item.sold_status == true)  {
-      $item.append('<h1>Sold Out!</h1>')
+    if (item.sold_status == true) {
+      $item.append("<h1>Sold Out!</h1>");
     }
     return $item;
   };
 
   // render all items on page
-  const renderItems = function(itemJSON) {
+  const renderItems = function (itemJSON) {
     let itemsArr = itemJSON.items;
-    $('.items-grid').empty();
+    $(".items-grid").empty();
 
     for (let item of itemsArr) {
       let $item = addNewItem(item);
-      $('.items-grid').append($item);
-      $('.items-grid').append($(`<div class="item-spacer"></div>`))
+      $(".items-grid").append($item);
+      $(".items-grid").append($(`<div class="item-spacer"></div>`));
     }
   };
 
   // get items to render
-  const loadItems = function() {
-    $.ajax('/api/items/', { method: 'GET' })
-      .then(function(items) {
+  const loadItems = function () {
+    $.ajax("/api/items/", { method: "GET" })
+      .then(function (items) {
         renderItems(items);
       })
-      .catch(function(err) { console.error(err); });
+      .catch(function (err) {
+        console.error(err);
+      });
   };
-
 
   //show user's uploaded items
   //currently hard coded to user 3
-  const loadMyItems = function() {
-    $.ajax('/api/myitems', { method: 'GET' })
-      .then(function(myItems) {
+  const loadMyItems = function () {
+    $.ajax("/api/myitems", { method: "GET" })
+      .then(function (myItems) {
         renderItems(myItems);
       })
-      .catch(function(err) { console.error(err); });
+      .catch(function (err) {
+        console.error(err);
+      });
   };
 
-  const loadFavItems = function() {
-    $.ajax('/api/favourites/', { method: 'GET' })
-      .then(function(favItems) {
+  const loadFavItems = function () {
+    $.ajax("/api/favourites/", { method: "GET" })
+      .then(function (favItems) {
         renderItems(favItems);
       })
-      .catch(function(err) { console.error(err); });
+      .catch(function (err) {
+        console.error(err);
+      });
   };
 
-  $("#my_items").click(function(event) {
+  $("#my_items").click(function (event) {
     loadMyItems();
   });
 
-  $('#item-filter-form').hide();
+  $("#item-filter-form").hide();
 
-  $('#filter').on('click', () => {
-    $('#item-filter-form').slideDown();
+  $("#filter").on("click", () => {
+    $("#item-filter-form").slideDown();
     return;
   });
 
-  $('.cancel-filter').on('click', () => {
-    $('#item-filter-form').slideUp();
+  $(".cancel-filter").on("click", () => {
+    $("#item-filter-form").slideUp();
     return;
   });
 
   // show favourite items for user
   // THIS ASSUMES USER_ID IS = 1, NEED TO ADD FURTHER IMPLEMENTATION
 
-  $("#show_favourites").click(function(event) {
+  $("#show_favourites").click(function (event) {
     loadFavItems();
   });
 
   // Even listener for price filter form submit button
-  $("#item-filter-form").submit(function(event) {
-
+  $("#item-filter-form").submit(function (event) {
     // prevent form from actually submitting
     event.preventDefault();
 
@@ -99,9 +104,7 @@ $(document).ready(() => {
 
     // form validation: if form isn't correct, alert error, else clear errors and submit
     if (minPrice < 0 || maxPrice < 0) {
-      $("#submit-errors1").text(
-        "Price filters must be 0 or greater"
-      );
+      $("#submit-errors1").text("Price filters must be 0 or greater");
     } else {
       //clear errors
       $("#submit-errors1").text("");
@@ -116,21 +119,16 @@ $(document).ready(() => {
         datatype: "query",
       })
 
-      // when receive response, re-render items list
-      .done(function (responseData) {
-        renderItems(responseData);
-      })
-      // if error, log error
-      .fail(function (errorData) {
-        console.log("fail: ", errorData);
-      });
+        // when receive response, re-render items list
+        .done(function (responseData) {
+          renderItems(responseData);
+        })
+        // if error, log error
+        .fail(function (errorData) {
+          console.log("fail: ", errorData);
+        });
     }
   });
 
   loadItems();
-
 });
-
-
-
-
