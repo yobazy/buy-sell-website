@@ -96,7 +96,17 @@ app.post("/login", (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-  res.render('login');
+  db.query('SELECT * FROM users WHERE id = $1', [req.session.user_id])
+  .then((data) => {
+    const user = data.rows[0];
+    const templateVars = { user };
+    res.render("login", templateVars);
+  })
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
 });
 
 app.get('/sell', (req, res) => {

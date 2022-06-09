@@ -26,7 +26,6 @@
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/main.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-  <!-- <link rel="stylesheet" href="/styles/header.css" type="text/css" /> -->
   <link rel="stylesheet" href="/styles/home.css" type="text/css" />
 
 
@@ -49,7 +48,8 @@
       </form>
       <% } else if (user.is_admin) { %>
       <button class="header" >Logout</button>
-      <button class="header" >Sell</button>
+      <form method="GET" action="/sell"></form>
+      <button class="header" id="sell-button" href="/sell">Sell</button>
       <button class="header" id="my_items" >My Items</button>
       <button class="header" id="show_favourites">My Favourites</button>
       <% } else {%>
