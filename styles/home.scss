@@ -9,23 +9,6 @@ div.layout {
   background-color: #ffffff;
 }
 
-img {
-  max-width: 250px;
-  max-height: 250px;
-  object-fit: cover;
-}
-
-.items-grid {
-  display: flex;
-  margin: auto;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  padding-left: 70px;
-  padding-right: 70px;
-}
-
 button.button {
   display: flex;
   margin-left: 10px;
