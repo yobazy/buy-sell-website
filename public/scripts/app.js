@@ -1,4 +1,24 @@
 // Client facing scripts here
+let addToFavs = function(item_id)  {
+  alert('added item to favs')
+  console.log(item_id)
+
+  $.ajax({
+    type: "POST",
+    url: "/api/favourites/add",
+    data: {item_id},
+    datatype: "query",
+  })
+
+    // when receive response, re-render items list
+    .done(function (responseData) {
+      console.log('sent data')
+    })
+    // if error, log error
+    .fail(function (errorData) {
+      console.log("fail: ", errorData);
+    });
+}
 
 // function for creating new item
 $(document).ready(() => {
@@ -15,7 +35,7 @@ $(document).ready(() => {
       </span>
       <p>${item.description}</p>
       <div class="button2">
-      <i id="favourite-heart" class="fa-solid fa-heart"></i>
+      <i id="favourite-heart" onclick=addToFavs(${item.id}) class="fa-solid fa-heart"></i>
       <a href="mailto:${item.email}?subject=Interested in your ${
       item.title
     } avatar">Message Seller</a>
