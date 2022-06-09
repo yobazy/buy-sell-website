@@ -13,7 +13,6 @@ module.exports = (db) => {
     //console.log("GET to / - req", req)
 
     const { filter } = req.body;
-    console.log("FILTER: ", filter)
 
     let query = `SELECT * FROM items`;
     console.log(query);
@@ -61,8 +60,9 @@ module.exports = (db) => {
 
     const queryParams = [];
     let queryString = `
-    SELECT *
+    SELECT items.id as id, items.title as title, items.description as description, items.item_photo_url as item_photo_url, items.price as price, users.name as user_name, users.email as email
     FROM items
+    JOIN users ON items.user_id = users.id
     `;
 
     //determine if need to add an AND or a WHERE
@@ -72,7 +72,7 @@ module.exports = (db) => {
 
       const minPrice = req.body["min-price"];
       queryParams.push(`${minPrice}`);
-      queryString += `WHERE price >= $${queryParams.length}`;
+      queryString += ` WHERE price >= $${queryParams.length}`;
       whereAlreadyExists = true;
 
     }
@@ -85,10 +85,16 @@ module.exports = (db) => {
       if (whereAlreadyExists) {
         queryString +=` AND price <= $${queryParams.length}`;
       } else {
-        queryString +=`WHERE price <= $${queryParams.length}`;
+        queryString +=` WHERE price <= $${queryParams.length}`;
       }
 
     }
+
+    queryString += `
+    GROUP BY items.id, users.id
+    ORDER BY items.price
+    `;
+
 
     console.log("queryString: ", queryString);
     console.log("queryParams: ", queryParams);

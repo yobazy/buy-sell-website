@@ -5,7 +5,7 @@
 $(document).ready(() => {
   console.log('jquery loaded')
   const addNewItem = function(item) {
-
+    console.log("ITEMMMM", item);
     const $item = $(`
       <div class="layout">
       <h2>${item.title}</h2>
@@ -14,7 +14,7 @@ $(document).ready(() => {
       <p>${item.description}</p>
       <div class="button2">
       <button class="button">Favourite</button>
-      <button class="button">Buy</button>
+      <a href="mailto:${item.email}?subject=Interested in your ${item.title} avatar">Message Seller</a>
       <button class="button">View</button>
       </div>`);
     return $item;
