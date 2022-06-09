@@ -37,9 +37,3 @@ module.exports = (db) => {
 
   return router;
 };
-
-// B - GET -  / - get all users
-// R - GET -  /items/:id - get user with specific id
-// E - POST - /users/:id - edit a user
-// A - POST - /items/:id/create - create a new user
-// D - POST - /items/:id/delete - delete a user

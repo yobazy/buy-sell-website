@@ -12,13 +12,13 @@ INSERT INTO users (name, email, is_admin) VALUES ('Mezillo Myker', 'mezz@gmail.c
 -- items table seeds here
 INSERT INTO items (user_id, title, description, item_photo_url, price, sold_status) VALUES (7, 'Fox', 'A pretty cool fox avatar', '/images/foxavatar.jpeg', 1000, true);
 
-INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (5, 'Anime Girl', 'A pretty cool anime girl avatar', '/images/anigirl.jpg', 5000);
+INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (5, 'Anime Girl', 'A pretty cool anime girl avatar', '/images/anigirl.webp', 5000);
 
 INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (5, 'Woof', 'This is a general canine avatar I have made that has a lot of customizing sliders and built for in mind for anyone to make about any cute canine species or even other species that one may like to change to. Example you can create the neck to be more arched/feral and widen the nose and body to fit more like a Hyena.', '/images/dog2avatar.gif', 3500);
 
 INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (6, 'Anime Boy', 'A pretty cool anime boy avatar', '/images/aniboy.jpeg', 7500);
 
-INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (8, 'Banana Cat', 'yes', '/images/bananacat.webp', 100);
+INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (8, 'Banana Cat', 'yes', '/images/bananacat.webp', 2199);
 
 INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (4, 'The Awwww', 'Just a cute furry otter model for VRC (VRChat) and CVR (Chillout VR) ! The package is full ready to use (very easy) and comes with tutorials ! It gets a lot of free updates and improvements overtime, stay in touch in Discord <3', '/images/aww.gif', 8999);
 
