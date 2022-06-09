@@ -80,7 +80,7 @@ $(document).ready(() => {
   const loadMyItems = function () {
     $.ajax("/api/myitems", { method: "GET" })
       .then(function (myItems) {
-        renderItems(myItems);
+        renderMyItems(myItems);
       })
       .catch(function (err) {
         console.error(err);
@@ -158,4 +158,5 @@ $(document).ready(() => {
   });
 
   loadItems();
+  renderMyItems();
 });
