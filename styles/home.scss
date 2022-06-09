@@ -1,3 +1,7 @@
+body {
+  background: #f1f1f1
+}
+
 
 div.layout {
   display: flex;
@@ -66,3 +70,23 @@ label {
 main {
   margin-top: 200px;
 }
+
+// section {
+//   width: 100%;
+//   margin-top: 300px;
+//   margin-left: 300px;
+// }
+
+// label {
+//   display: flex;
+//   font-weight: 700;
+//   flex-direction: column;
+// }
+
+// div.main {
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   justify-content: space-between;
+
+// }
