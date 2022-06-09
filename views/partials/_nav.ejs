@@ -1,4 +1,4 @@
-
+<!--
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,20 +35,29 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script type="text/javascript"
     src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.4.3/jquery.timeago.min.js"></script>
-</head>
+    <script src="scripts/app.js"></script>
+    <script src="server.js"></script>
 
-<body>
-  <nav>
-    <span><p class="reason">Reasonable</p> <p class="reality">Realities</p></span>
-    <div class="button" id="header">
-    <form method="GET" action="/login">
-      <button class="header" id="login-button" href="/login">Login</button>
-    </form>
-    <button class="header" >Sell</button>
-    <button class="header" id="my_items" >My Items</button>
-    <button class="header" id="show_favourites">My Favourites</button>
-  </div>
-  </nav>
-</body>
-</html>
+</head>
+  <body>
+    <nav>
+      <span><p class="reason">Reasonable</p> <p class="reality">Realities</p></span>
+      <div class="button" id="header">
+      <% if (!user) { %>
+      <form method="GET" action="/">
+        <button class="header" id="login-button" href="/">Login</button>
+      </form>
+      <% } else if (user.is_admin) { %>
+      <button class="header" >Logout</button>
+      <button class="header" >Sell</button>
+      <button class="header" id="my_items" >My Items</button>
+      <button class="header" id="show_favourites">My Favourites</button>
+      <% } else {%>
+        <button class="header" id="show_favourites">My Favourites</button>
+        <button class="header" >Logout</button>
+      <% } %>
+    </div>
+    </nav>
+  </body>
+  </html>
 

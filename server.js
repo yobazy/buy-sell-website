@@ -45,10 +45,11 @@ app.use(express.static("public"));
 // APIs
 const usersApiRoutes = require("./api_routes/users");
 const itemsApiRoutes = require("./api_routes/items");
-console.log('itemsroute', itemsApiRoutes)
-const favouritesApiRoutes = require("./api_routes/favourites")
+console.log('itemsroute', itemsApiRoutes);
+const favouritesApiRoutes = require("./api_routes/favourites");
 const myItemsRoutes = require("./api_routes/myitems");
-console.log('myitems', myItemsRoutes)
+const users = require("./api_routes/users");
+
 
 
 // Content
@@ -76,14 +77,26 @@ app.use("/api/myitems", myItemsRoutes(db));
 
 
 app.get("/", (req, res) => {
-  res.render("index");
+  db.query('SELECT * FROM users WHERE id = $1', [req.session.user_id])
+    .then((data) => {
+      const user = data.rows[0];
+      const templateVars = { user };
+      res.render("index", templateVars);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
 });
 
-app.get('/items', (req, res) => {
-  res.render('items');
-});
+
+// app.get('/items', (req, res) => {
+//   res.render('items');
+// });
 
 app.get('/login', (req, res) => {
+
   res.render('login');
 });
 
@@ -91,22 +104,21 @@ app.get('/sell', (req, res) => {
   res.render('sell');
 });
 
-app.get('/favourites', (req, res) => {
-  res.render('favourites');
-});
+// app.get('/favourites', (req, res) => {
+//   res.render('favourites');
+// });
 
-app.get('/myitems', (req, res) => {
-  res.render('myitems');
-});
+// app.get('/myitems', (req, res) => {
+//   res.render('myitems');
+// });
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
 
 app.post("/login", (req, res) => {
-  // user input password (unsused)
-  let inputPass = req.body['password'];
-
-  req.session.user_id = inputPass
-  res.render('index')
+  console.log('req.body', req.body)
+  req.session.user_id = req.body.user;
+  console.log(req.session);
+  res.redirect('/');
 });
