@@ -1,7 +1,6 @@
 // Client facing scripts here
 
-// function for creating new tweet element
-
+// function for creating new item
 $(document).ready(() => {
   const addNewItem = function(item) {
     const $item = $(`
@@ -30,7 +29,6 @@ $(document).ready(() => {
       <h2>${item.title}</h2>
       <img src="${item.item_photo_url}" />
       <span class="artist-price">
-        <p id="maker">Maker:${item.user_name}</p>
         <h2>$${item.price/100}</h2>
       </span>
       <p>${item.description}</p>
@@ -156,7 +154,6 @@ $(document).ready(() => {
   });
 
   loadItems();
-  loadMyItems();
 
 });
 
