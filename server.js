@@ -91,8 +91,11 @@ app.get("/", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
+  if (Number(req.body.user)) {
   req.session.user_id = req.body.user;
-  res.redirect('/');
+  return res.redirect('/');
+  }
+res.send('Error. UserID must be a number.')
 });
 
 app.get('/login', (req, res) => {
