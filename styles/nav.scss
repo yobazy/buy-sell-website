@@ -54,6 +54,11 @@ div.navbar :hover {
   color: rgb(125, 124, 127);
 }
 
+form.nav :hover {
+  background-color: transparent;
+  color: rgb(125, 124, 127);
+}
+
 div.navbar {
   display: flex;
   flex-direction: row;
