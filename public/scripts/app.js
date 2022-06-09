@@ -17,6 +17,9 @@ $(document).ready(() => {
       <a href="mailto:${item.email}?subject=Interested in your ${item.title} avatar">Message Seller</a>
       <button class="button">View</button>
       </div>`);
+    if(item.sold_status == true)  {
+      $item.append('<h1>Sold Out!</h1>')
+    }
     return $item;
   };
 

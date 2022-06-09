@@ -107,6 +107,6 @@ app.post("/login", (req, res) => {
   // user input password (unsused)
   let inputPass = req.body['password'];
 
-  req.session.user_id = 2
+  req.session.user_id = inputPass
   res.render('index')
 });
