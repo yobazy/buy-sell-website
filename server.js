@@ -116,7 +116,10 @@ app.get('/sell', (req, res) => {
   res.render('sell');
 });
 
-
+app.post('/logout', (req, res) => {
+  req.session.user_id = null;
+  res.redirect('/');
+})
 
 
 app.listen(PORT, () => {
