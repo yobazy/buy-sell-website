@@ -36,7 +36,7 @@ $(document).ready(() => {
       </span>
       <p>${item.description}</p>
       <div class="button2">
-      <p class="button">Mark as Sold</button>
+      <button class="button">Mark as Sold</button>
       <button class="button">Delete</button>
       </div>`);
     return $myItem;
