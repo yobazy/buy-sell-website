@@ -10,9 +10,12 @@
 }
 
 img {
-  width: 250px;
-  height: 250px;
+  width: 600px;
+  height: 600px;
   object-fit: cover;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: black
 }
 
 .item-spacer {
