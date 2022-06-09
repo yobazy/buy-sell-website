@@ -5,17 +5,15 @@ section {
 }
 
 
-
 div.layout {
   display: flex;
-  margin: 50px;
   font-family: Quantico, sans-serif;
   align-items: center;
-  border: solid black 5px;
   flex-direction: column;
+  border: solid black 5px;
   vertical-align: baseline;
+  background-color: #ffffff;
 }
-
 
 img {
   padding: 10px;

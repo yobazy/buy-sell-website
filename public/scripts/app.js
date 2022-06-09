@@ -29,6 +29,7 @@ $(document).ready(() => {
     for (let item of itemsArr) {
       let $item = addNewItem(item);
       $('.items-grid').append($item);
+      $('.items-grid').append($(`<div class="item-spacer"></div>`))
     }
   };
 
