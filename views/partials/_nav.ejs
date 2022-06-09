@@ -40,10 +40,10 @@
 
 <body>
   <nav>
-    <span>
+    <span class="logo-home-button"><a href="/">
       <p class="reason">Reasonable</p>
       <p class="reality">Realities</p>
-    </span>
+    </a></span>
     <div class="button">
       <% if (!user) { %>
         <form class="nav" method="GET" action="/login">
@@ -51,7 +51,6 @@
         </form>
         <% } else if (user.is_admin) { %>
           <div class="navbar">
-            <form class="nav" method="GET" action="/"><button class="header" href="/">Home</button></form>
             <form class="nav" method="GET" action="/sell">
               <button class="header" href="/sell">Sell</button>
             </form>
@@ -63,8 +62,6 @@
           </div>
           <% } else {%>
             <div class="navbar">
-              <form class="nav" method="GET" action="/"><button class="header" id="home-button" href="/">Home</button>
-              </form>
               <button class="header" id="filter">Filter Items</button>
               <button class="header" id="show_favourites">My Favourites</button>
               <form class="nav" method="POST" action="/logout"><button class="header" href="/logout">Logout</button>
