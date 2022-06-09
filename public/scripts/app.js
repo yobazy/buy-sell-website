@@ -65,6 +65,17 @@ $(document).ready(() => {
     loadMyItems();
   });
 
+  $('#item-filter-form').hide();
+
+  $('#filter').on('click', () => {
+    $('#item-filter-form').slideDown();
+    return;
+  });
+
+  $('.cancel-filter').on('click', () => {
+    $('#item-filter-form').slideUp();
+    return;
+  });
 
   // show favourite items for user
   // THIS ASSUMES USER_ID IS = 1, NEED TO ADD FURTHER IMPLEMENTATION
