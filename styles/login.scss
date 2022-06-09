@@ -1,48 +1,27 @@
 
-.login {
-  margin-top: 250px;
+main.login {
+  margin-top: 500px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-span {
-  display: flex;
-  position: fixed;
-  flex-direction: row;
-  height: 100px;
-  width: 100%;
-  padding: 1.5em;
-  padding-top: 0em;
-  color: #FFFFFF;
-  background-color: #000000;
-  background-image: url(http://www.transparenttextures.com/patterns/stucco.png);
-  justify-content: space-between;
-  top: 0;
+h3 {
+  font-family: Quantico, sans-serif;
+  font-size: 40px;
 }
+
 
 div.form-group.mb-2{
+  font-family: Quantico, sans-serif;
   margin-top: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-button {
-  border-radius: 25px;
-  margin-top: 50px;
-  margin-right: 20px;
-  border: 2px solid whitesmoke;
-  padding: 10px;
-  font-family: Quantico, sans-serif;
-  font-size: 16px;
-}
 
-div.button {
-  margin-right: 20px;
-}
-
-div.button :hover {
+.header :hover {
 background-color: rgb(80, 73, 90);
 color: whitesmoke;
 }
