@@ -2,18 +2,20 @@
 
 // function for creating new item
 $(document).ready(() => {
+
+  // populate item card with item and maker info
   const addNewItem = function (item) {
     const $item = $(`
       <div class="layout">
+      <img src="${item.item_photo_url}"/>
       <h2>${item.title}</h2>
-      <img src="${item.item_photo_url}" />
       <span class="artist-price">
         <p id="maker">Maker:${item.user_name}</p>
         <h2>$${item.price / 100}</h2>
       </span>
       <p>${item.description}</p>
       <div class="button2">
-      <i class="fa-solid fa-heart"></i>
+      <i id="favourite-heart" class="fa-solid fa-heart"></i>
       <a href="mailto:${item.email}?subject=Interested in your ${
       item.title
     } avatar">Message Seller</a>
@@ -27,14 +29,14 @@ $(document).ready(() => {
   const myItems = function(item) {
     const $myItem = $(`
       <div class="layout">
+      <img src="${item.item_photo_url}"/>
       <h2>${item.title}</h2>
-      <img src="${item.item_photo_url}" />
       <span class="artist-price">
         <h2>$${item.price/100}</h2>
       </span>
       <p>${item.description}</p>
       <div class="button2">
-      <button class="button">Mark as Sold</button>
+      <p class="button">Mark as Sold</button>
       <button class="button">Delete</button>
       </div>`);
     return $myItem;
