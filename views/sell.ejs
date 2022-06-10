@@ -13,7 +13,9 @@
   <!-- Font Imports -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Bungee&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Sen:wght@400;700&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Audiowide&family=Bungee&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Sen:wght@400;700&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap"
+    rel="stylesheet">
 
   <!-- Font Awesome Import -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -40,38 +42,38 @@
 <body>
   <%- include('partials/_nav') %>
 
-<main class="sell_form">
-  <h2>Upload a new item here!</h2>
-  <form action="/api/items" method="POST" id="new-item-form">
-    <div class="new-item-form">
-      <label for="new-item-form">Title</label>
-      <input type="text" name="title" placeholder="Title">
-    </div>
+    <main class="sell_form">
+      <h2>Upload a new item here!</h2>
+      <form action="/api/items" method="POST" id="new-item-form">
+        <div class="new-item-form">
+          <label for="new-item-form">Title</label>
+          <input type="text" name="title" placeholder="Title">
+        </div>
 
-    <div class="new-item-form">
-      <label for="new-item-form">Description</label>
-      <textarea placeholder="Description" name="description" cols="30" rows="5"></textarea>
-    </div>
-
-
-    <div class="new-item-form">
-      <label for="new-item-form">Price</label>
-      <input placeholder="Price" type="number" name="price">
-    </div>
-
-    <div class="new-item-form">
-      <label for="new-item-form">Image</label>
-      <input type='text' placeholder="Image URL" name="photo">
-    </div>
+        <div class="new-item-form">
+          <label for="new-item-form">Description</label>
+          <textarea placeholder="Description" name="description" cols="30" rows="5"></textarea>
+        </div>
 
 
-      <div class="new-item-form">
+        <div class="new-item-form">
+          <label for="new-item-form">Price</label>
+          <input placeholder="Price" type="number" name="price">
+        </div>
+
+        <div class="new-item-form">
+          <label for="new-item-form">Image</label>
+          <input type='text' placeholder="Image URL" name="photo">
+        </div>
+
+
+        <div class="new-item-form">
           <button>Create</button>
           <a id="item-form" href="/">Cancel</a>
-      </div>
+        </div>
 
-  </form>
-</main>
-  </body>
-  </html>
+      </form>
+    </main>
+</body>
 
+</html>

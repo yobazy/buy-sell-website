@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,7 +23,9 @@
   <!-- Font Imports -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Bungee&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Sen:wght@400;700&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Audiowide&family=Bungee&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Sen:wght@400;700&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap"
+    rel="stylesheet">
 
   <!-- Font Awesome Import -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -49,16 +52,16 @@
 <body>
   <%- include('partials/_nav') %>
 
-  <main class="login" style="margin: 1em;">
-    <h3>Login to Your Account</h3>
-    <form class="form-inline" action="/login" method="POST">
-      <div class="form-group mb-2">
-        <label for="userID">Enter Your User ID:</label>
-          <input class="form-control" name="user" placeholder="userID"
-          style="width: 300px; margin: 1em"></input>
+    <main class="login" style="margin: 1em;">
+      <h3>Login to Your Account</h3>
+      <form class="form-inline" action="/login" method="POST">
+        <div class="form-group mb-2">
+          <label for="userID">Enter Your User ID:</label>
+          <input class="form-control" name="user" placeholder="userID" style="width: 300px; margin: 1em"></input>
           <button type="submit" class="button2">Submit</button>
-      </div>
-    </form>
-  </main>
+        </div>
+      </form>
+    </main>
 </body>
+
 </html>

@@ -59,6 +59,7 @@ $(document).ready(() => {
     return $item;
   };
 
+  //Function for My Items Page View//
   const myItems = function(item) {
     const $myItem = $(`
       <div class="layout">
@@ -131,11 +132,12 @@ $(document).ready(() => {
       });
   };
 
-
+  //loads re-rendered page when my items is clicked to show only user's items//
   $("#my_items").click(function(event) {
     loadMyItems();
   });
 
+  //Hides/expands the filter field when selected//
   $("#item-filter-form").hide();
 
   $("#filter").on("click", () => {
@@ -149,8 +151,6 @@ $(document).ready(() => {
   });
 
   // show favourite items for user
-  // THIS ASSUMES USER_ID IS = 1, NEED TO ADD FURTHER IMPLEMENTATION
-
   $("#show_favourites").click(function(event) {
     loadFavItems();
   });
@@ -192,6 +192,7 @@ $(document).ready(() => {
     }
   });
 
+  //deletes item when delete button is clicked//
   $(document).on("click", ".delete", function(event) {
     const itemID = $(this).data("itemid");
     $.ajax({
@@ -205,7 +206,7 @@ $(document).ready(() => {
       });
   });
 
-
+  //marks item as sold out when mark as sold button is clicked//
   $(document).on("click", ".sold", function(event) {
     const itemID = $(this).data("soldid");
     $.ajax({
@@ -215,8 +216,8 @@ $(document).ready(() => {
       datatype: "query",
     })
       .then(() => {
-         $(".sold").hide()
-        });
+        $(".sold").hide();
+      });
   });
 
   loadItems();
