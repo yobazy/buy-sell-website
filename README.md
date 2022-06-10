@@ -10,11 +10,30 @@ Main Contributors: [Taylor McLeod](https://github.com/lorleod), [Céilidhe Maher
 localhost:8080
 
 ## Demo Images ( 2-5 should walk user through app features )
-!["Photo 1"](GH URL)
-!["Photo 2"](GH URL)
-!["Photo 3"](GH URL)
-!["Photo 4"](GH URL)
-!["Photo 5"](GH URL)
+
+Login Page: 
+
+!["Login Page"](https://github.com/youthbazzy/buy-sell-website/blob/master/midtermdocs/loginpage.png)
+
+Item Card: 
+
+!["Item Card"](https://github.com/youthbazzy/buy-sell-website/blob/master/midtermdocs/itemcard.png)
+
+User Nav Bar:
+
+!["User Nav Bar"](https://github.com/youthbazzy/buy-sell-website/blob/master/midtermdocs/usernav.png)
+
+Admin Nav Bar:
+
+!["Admin Nav Bar"](https://github.com/youthbazzy/buy-sell-website/blob/master/midtermdocs/adminnav.png)
+
+Filter Bar:
+
+!["Filter Bar"](https://github.com/youthbazzy/buy-sell-website/blob/master/midtermdocs/filterbar.png)
+
+Upload New Item Page:
+
+!["Upload Item"](https://github.com/youthbazzy/buy-sell-website/blob/master/midtermdocs/uploaditem.png)
 
 ## Tech Stack
 - EJS
