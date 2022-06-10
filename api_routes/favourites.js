@@ -34,7 +34,6 @@ router.get("/", (req, res) => {
 });
 
 router.post("/add", (req, res) => {
-  console.log(req.body)
 
   let queryString = `
   INSERT INTO favourites (user_id, item_id)

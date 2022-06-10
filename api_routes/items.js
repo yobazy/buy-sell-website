@@ -10,7 +10,7 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    //console.log("GET to / - req", req)
+
 
     const { filter } = req.body;
 
@@ -21,7 +21,7 @@ module.exports = (db) => {
     GROUP BY items.id, users.id
     ORDER BY items.price;
     `;
-    console.log(query);
+
     db.query(query)
       .then(data => {
         const items = data.rows;
@@ -36,20 +36,17 @@ module.exports = (db) => {
 
   router.get("/:itemID", (req, res) => {
     const itemID = req.params.itemID
-    console.log("itemID", itemID);
+
 
     let queryString = `
     SELECT * FROM items
     WHERE id = $1;
     `;
-    console.log("queryString: ", queryString);
     let values = [itemID];
-    console.log("values: ", values);
 
     db.query(queryString, values)
       .then(data => {
         const items = data.rows;
-        console.log("items: ", items)
         res.json({ items });
       })
       .catch(err => {
@@ -60,9 +57,6 @@ module.exports = (db) => {
   });
 
   router.post("/filter", (req, res) => {
-    console.log('req.body', req.body);
-    console.log('req.body["min-price"]', req.body["min-price"]);
-    console.log('req.body["max-price"]', req.body["max-price"]);
 
     const queryParams = [];
     let queryString = `
@@ -102,13 +96,9 @@ module.exports = (db) => {
     `;
 
 
-    console.log("queryString: ", queryString);
-    console.log("queryParams: ", queryParams);
-
     db.query(queryString, queryParams)
         .then(data => {
           const items = data.rows;
-          console.log("items: ", items)
           res.json({ items });
         })
         .catch(err => {
@@ -133,7 +123,6 @@ module.exports = (db) => {
     db.query(queryString, values)
       .then(data => {
         const item = data.rows;
-        console.log("item: ", item)
         res.redirect("/");
       })
       .catch(err => {
@@ -147,9 +136,3 @@ module.exports = (db) => {
   return router;
 };
 
-
-// B - GET -  /items
-// R - GET -  /items/:id
-// E - POST - /items/:id
-// A - POST - /items/:id/create
-// D - POST - /items/:id/delete

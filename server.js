@@ -45,7 +45,6 @@ app.use(express.static("public"));
 // APIs
 const usersApiRoutes = require("./api_routes/users");
 const itemsApiRoutes = require("./api_routes/items");
-console.log('itemsroute', itemsApiRoutes);
 const favouritesApiRoutes = require("./api_routes/favourites");
 const myItemsRoutes = require("./api_routes/myitems");
 const users = require("./api_routes/users");

@@ -1,7 +1,6 @@
 // Client facing scripts here
 let addToFavs = function(item_id) {
   alert('added item to favs');
-  console.log(item_id);
 
   $.ajax({
     type: "POST",
