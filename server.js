@@ -8,9 +8,6 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const session = require("cookie-session");
-// const bodyParser = require('body-parser');
-// const bcrypt = require('bcryptjs');
-// PG database client/connection setup
 const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
 const db = new Pool(dbParams);
@@ -53,9 +50,6 @@ const users = require("./api_routes/users");
 
 // Content
 
-// const usersRoutes = require("./routes/users");
-// const itemsRoutes = require("./routes/items");
-// const favouritesRoutes = require("./routes/favourites");
 
 // Mount all resource routes
 
@@ -65,15 +59,11 @@ app.use("/api/items", itemsApiRoutes(db));
 app.use("/api/favourites", favouritesApiRoutes(db));
 app.use("/api/myitems", myItemsRoutes(db));
 
-// Content Routes
-// app.use("/users", itemsRoutes(db));
-// app.use("/items", itemsRoutes(db));
-// app.use("/favourites", favouritesRoutes(db));
-
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
+//Core Routes//
 
 app.get("/", (req, res) => {
   db.query('SELECT * FROM users WHERE id = $1', [req.session.user_id])
@@ -91,44 +81,44 @@ app.get("/", (req, res) => {
 
 app.post("/login", (req, res) => {
   if (Number(req.body.user)) {
-  req.session.user_id = req.body.user;
-  return res.redirect('/');
+    req.session.user_id = req.body.user;
+    return res.redirect('/');
   }
-res.send('Error. UserID must be a number.')
+  res.send('Error. UserID must be a number.');
 });
 
 app.get('/login', (req, res) => {
   db.query('SELECT * FROM users WHERE id = $1', [req.session.user_id])
-  .then((data) => {
-    const user = data.rows[0];
-    const templateVars = { user };
-    res.render("login", templateVars);
-  })
-  .catch(err => {
-    res
-      .status(500)
-      .json({ error: err.message });
-  });
+    .then((data) => {
+      const user = data.rows[0];
+      const templateVars = { user };
+      res.render("login", templateVars);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
 });
 
 app.get('/sell', (req, res) => {
   db.query('SELECT * FROM users WHERE id = $1', [req.session.user_id])
-  .then((data) => {
-    const user = data.rows[0];
-    const templateVars = { user };
-    res.render("sell", templateVars);
-  })
-  .catch(err => {
-    res
-      .status(500)
-      .json({ error: err.message });
-  });
+    .then((data) => {
+      const user = data.rows[0];
+      const templateVars = { user };
+      res.render("sell", templateVars);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
 });
 
 app.post('/logout', (req, res) => {
   req.session.user_id = null;
   res.redirect('/');
-})
+});
 
 
 app.listen(PORT, () => {
