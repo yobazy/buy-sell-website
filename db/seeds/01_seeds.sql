@@ -2,7 +2,7 @@
 INSERT INTO users (name, email, is_admin) VALUES ('Bazil', 'baz@gmail.com', true);
 INSERT INTO users (name, email, is_admin) VALUES ('Ceilidhe', 'ceilidhemaher@gmail.com', true);
 INSERT INTO users (name, email, is_admin) VALUES ('Taylor', 'taylor.mcleod@gmail.com', true);
-INSERT INTO users (name, email, is_admin) VALUES ('Spade the Cat', 'alice@gmail.com', false);
+INSERT INTO users (name, email, is_admin) VALUES ('Spade the Cat', 'alice@gmail.com', true);
 INSERT INTO users (name, email, is_admin) VALUES ('Lyanite', 'Lira@gmail.com', false);
 INSERT INTO users (name, email, is_admin) VALUES ('-RoFleX-', 'mike@gmail.com', false);
 INSERT INTO users (name, email, is_admin) VALUES ('Julio Summerpaw', 'julio@gmail.com', false);
@@ -10,7 +10,7 @@ INSERT INTO users (name, email, is_admin) VALUES ('Mezillo Myker', 'mezz@gmail.c
 
 
 -- items table seeds here
-INSERT INTO items (user_id, title, description, item_photo_url, price, sold_status) VALUES (2, 'Fox', 'A pretty cool fox avatar', '/images/foxavatar.jpeg', 1000, true);
+INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (2, 'Fox', 'A pretty cool fox avatar', '/images/foxavatar.jpeg', 1000);
 
 INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (5, 'Anime Girl', 'A pretty cool anime girl avatar', '/images/anigirl.webp', 5000);
 
@@ -41,7 +41,7 @@ Nynx (3.0) by Lyanite ADDED PHYSBONES TO PC + QUEST
 ✔ Toggles: Mask, Hat/Ears, Pants-Shorts, Shoes
 
 ✔ Extras: Blade, Robot/Human Arm, 2 Springjoints, Drawing Pencil'
-, '/images/mynx.gif', 21.99);
+, '/images/mynx.gif', 2199);
 
 INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (6, '๑ஓ── Unspeaking Avatar! ──ஓ๑', '๑ஓ──── Silent ─────ஓ๑
 My 2022 project I have been working on is finally ready to release!

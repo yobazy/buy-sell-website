@@ -1,27 +1,27 @@
 // Client facing scripts here
-let addToFavs = function(item_id) {
-  alert('added item to favs');
-  console.log(item_id);
 
-  $.ajax({
-    type: "POST",
-    url: "/api/favourites/add",
-    data: { item_id },
-    datatype: "query",
-  })
-
-    // when receive response, re-render items list
-    .done(function(responseData) {
-      console.log('sent data');
-    })
-    // if error, log error
-    .fail(function(errorData) {
-      console.log("fail: ", errorData);
-    });
-};
-
-// function for creating new item
 $(document).ready(() => {
+
+  let addToFavs = function(item_id) {
+    alert('added item to favs');
+    console.log(item_id);
+
+    $.ajax({
+      type: "POST",
+      url: "/api/favourites/add",
+      data: { item_id },
+      datatype: "query",
+    })
+
+      // when receive response, re-render items list
+      .done(function(responseData) {
+        console.log('sent data');
+      })
+      // if error, log error
+      .fail(function(errorData) {
+        console.log("fail: ", errorData);
+      });
+  };
 
   // populate item card with item and maker info
   const addNewItem = function(item) {
