@@ -52,3 +52,42 @@ img {
   padding-left: 70px;
   padding-right: 70px;
 }
+
+.maker-title {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+
+.title {
+  border-left: 2px solid black;
+  width: 50%;
+  height: 100%;
+}
+
+.maker {
+  width: 50%;
+  height: 100%;
+}
+
+.message-price {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+
+.message {
+  border-left: 2px solid black;
+  width: 33%;
+  height: 100%;
+}
+
+.price {
+  border-left: 2px solid black;
+  width: 33%;
+  height: 100%;
+}
