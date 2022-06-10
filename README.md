@@ -15,6 +15,11 @@ Login Page:
 
 !["Login Page"](https://github.com/youthbazzy/buy-sell-website/blob/master/midtermdocs/loginpage.png)
 
+Main Page:
+
+!["Main Page"](https://github.com/youthbazzy/buy-sell-website/blob/master/midtermdocs/mainpage.png)
+
+
 Item Card: 
 
 !["Item Card"](https://github.com/youthbazzy/buy-sell-website/blob/master/midtermdocs/itemcard.png)
