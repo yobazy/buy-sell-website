@@ -3,7 +3,7 @@ Reasonable Realities buy-sell demo website
 
 ## Overview
 
-This was a project to demo our team's skills for the Lighthouse Labs Midterm Live-demos. We chose to build a buy-sell website advertising virtual reality avatars. The user has the ability to favourite items, filter by price, and message the seller. Users can return to the site later and access their favourited items. Sellers can upload new items, mark them as sold, and/or remove their items from the site.
+This was a project to demo our team's skills for the Lighthouse Labs Midterm Live-demos. We chose to build a buy-sell website advertising virtual reality avatars. The user has the ability to browse items, favourite and item, filter by price, and message the seller. Users can return to the site later and access their favourited items. Sellers can upload new items, mark them as sold, and/or remove their items from the site.
 
 Main Contributors: [Taylor McLeod](https://github.com/lorleod), [Céilidhe Maher](https://github.com/cmaher15), [Bazil Khan](https://github.com/youthbazzy)
 
@@ -23,9 +23,11 @@ Login Page - Allows users to log in and initiate a session:
 !["Login Page"](https://github.com/youthbazzy/buy-sell-website/blob/master/midtermdocs/loginpage.png)
 
 
-Item Card:
+Item Card - Shows details about the avatar including an image, the maker, a title, a description, and the price. Also includes buttons to favourite the item and message the seller about the item:
 
 !["Item Card"](https://github.com/youthbazzy/buy-sell-website/blob/master/midtermdocs/itemcard.png)
+
+Nav Bar - Shows different menu options depending on whether logged out or logged in as a user or seller:
 
 User Nav Bar:
 
