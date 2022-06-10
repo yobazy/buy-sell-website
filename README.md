@@ -17,12 +17,12 @@ localhost:8080
 !["Photo 5"](GH URL)
 
 ## Tech Stack
-EJS
-JQuery
-AJAX
-SASS/SCSS
-Express
-Cookie-Session
+- EJS
+- JQuery
+- AJAX
+- SASS/SCSS
+- Express
+
 
 ## Future Goals (Optional)
 
