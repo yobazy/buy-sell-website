@@ -6,9 +6,28 @@ BUY-SELL
 Main Contributors: [Taylor McLeod](https://github.com/lorleod), [Céilidhe Maher](https://github.com/cmaher15)
 
 ## important URL link to their Demo Project
+
+localhost:8080
+
 ## Demo Images ( 2-5 should walk user through app features )
+!["Photo 1"](GH URL)
+!["Photo 2"](GH URL)
+!["Photo 3"](GH URL)
+!["Photo 4"](GH URL)
+!["Photo 5"](GH URL)
+
 ## Tech Stack
+EJS
+JQuery
+AJAX
+SASS/SCSS
+Express
+Cookie-Session
+
 ## Future Goals (Optional)
+
+
+
 ## Setup
 
 LHL Node Skeleton
@@ -50,7 +69,11 @@ The following steps are only for _one_ of the group members to perform.
   - Note: you will lose all newly created (test) data each time this is run, since the schema files will tend to `DROP` the tables and recreate them.
 
 ## Dependencies
-
-- Node 10.x or above
-- NPM 5.x or above
-- PG 6.x
+ - chalk: ^2.4.2
+ - cookie-session: ^2.0.0
+ - dotenv: ^2.0.0
+ - ejs: ^2.6.2
+ - express: ^4.17.1
+ - morgan: ^1.9.1
+ - pg: ^8.5.0
+ - sass: ^1.35.1
