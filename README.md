@@ -3,7 +3,7 @@ Reasonable Realities buy-sell demo website
 
 ## Overview
 
-This was a project to demo our team's skills for the Lighthouse Labs Midterm Live-demos. We chose to build a buy-sell website advertising virtual reality avatars. The user has the ability to browse items, favourite and item, filter by price, and message the seller. Users can return to the site later and access their favourited items. Sellers can upload new items, mark them as sold, and/or remove their items from the site.
+This was a project to demo our team's skills for the Lighthouse Labs Midterm Live-demos. We chose to build a buy-sell website advertising virtual reality avatars. The user has the ability to browse items, favourite an item, filter by price, and message the seller. Users can return to the site later and access their favourited items. Sellers can upload new items, mark them as sold, and/or remove their items from the site.
 
 Main Contributors: [Taylor McLeod](https://github.com/lorleod), [Céilidhe Maher](https://github.com/cmaher15), [Bazil Khan](https://github.com/youthbazzy)
 
