@@ -1,30 +1,30 @@
 // Client facing scripts here
-let addToFavs = function(item_id)  {
-  alert('added item to favs')
-  console.log(item_id)
+let addToFavs = function(item_id) {
+  alert('added item to favs');
+  console.log(item_id);
 
   $.ajax({
     type: "POST",
     url: "/api/favourites/add",
-    data: {item_id},
+    data: { item_id },
     datatype: "query",
   })
 
     // when receive response, re-render items list
-    .done(function (responseData) {
-      console.log('sent data')
+    .done(function(responseData) {
+      console.log('sent data');
     })
     // if error, log error
-    .fail(function (errorData) {
+    .fail(function(errorData) {
       console.log("fail: ", errorData);
     });
-}
+};
 
 // function for creating new item
 $(document).ready(() => {
 
   // populate item card with item and maker info
-  const addNewItem = function (item) {
+  const addNewItem = function(item) {
     const $item = $(`
       <div class="layout">
       <img src="${item.item_photo_url}"/>
@@ -44,9 +44,8 @@ $(document).ready(() => {
           <i id="favourite-heart" onclick=addToFavs(${item.id}) class="fa-solid fa-heart"></i>
         </div>
         <div class="message">
-          <a href="mailto:${item.email}?subject=Interested in your ${
-            item.title
-          } avatar">Message Seller</a>
+          <a href="mailto:${item.email}?subject=Interested in your ${item.title
+      } avatar">Message Seller</a>
         </div>
         <div class="price">
           <h2>$${item.price / 100}</h2>
@@ -66,7 +65,7 @@ $(document).ready(() => {
       <img src="${item.item_photo_url}"/>
       <h2>${item.title}</h2>
       <span class="artist-price">
-        <h2>$${item.price/100}</h2>
+        <h2>$${item.price / 100}</h2>
       </span>
       <p>${item.description}</p>
       <div class="button2">
@@ -77,7 +76,7 @@ $(document).ready(() => {
   };
 
   // render all items on page
-  const renderItems = function (itemJSON) {
+  const renderItems = function(itemJSON) {
     let itemsArr = itemJSON.items;
     $(".items-grid").empty();
 
@@ -96,45 +95,44 @@ $(document).ready(() => {
     for (let item of itemsArr) {
       let $item = myItems(item);
       $('.items-grid').append($item);
-      $('.items-grid').append($(`<div class="item-spacer"></div>`))
+      $('.items-grid').append($(`<div class="item-spacer"></div>`));
     }
   };
 
   // get items to render
-  const loadItems = function () {
+  const loadItems = function() {
     $.ajax("/api/items/", { method: "GET" })
-      .then(function (items) {
+      .then(function(items) {
         renderItems(items);
       })
-      .catch(function (err) {
+      .catch(function(err) {
         console.error(err);
       });
   };
 
   //show user's uploaded items
-  //currently hard coded to user 3
-  const loadMyItems = function () {
+  const loadMyItems = function() {
     $.ajax("/api/myitems", { method: "GET" })
-      .then(function (myItems) {
+      .then(function(myItems) {
         renderMyItems(myItems);
       })
-      .catch(function (err) {
+      .catch(function(err) {
         console.error(err);
       });
   };
 
-  const loadFavItems = function () {
+  const loadFavItems = function() {
     $.ajax("/api/favourites/", { method: "GET" })
-      .then(function (favItems) {
+      .then(function(favItems) {
         renderItems(favItems);
       })
-      .catch(function (err) {
+      .catch(function(err) {
         console.error(err);
       });
   };
 
 
-  $("#my_items").click(function (event) {
+  $("#my_items").click(function(event) {
     loadMyItems();
   });
 
@@ -153,12 +151,12 @@ $(document).ready(() => {
   // show favourite items for user
   // THIS ASSUMES USER_ID IS = 1, NEED TO ADD FURTHER IMPLEMENTATION
 
-  $("#show_favourites").click(function (event) {
+  $("#show_favourites").click(function(event) {
     loadFavItems();
   });
 
   // Even listener for price filter form submit button
-  $("#item-filter-form").submit(function (event) {
+  $("#item-filter-form").submit(function(event) {
     // prevent form from actually submitting
     event.preventDefault();
 
@@ -184,42 +182,42 @@ $(document).ready(() => {
       })
 
         // when receive response, re-render items list
-        .done(function (responseData) {
+        .done(function(responseData) {
           renderItems(responseData);
         })
         // if error, log error
-        .fail(function (errorData) {
+        .fail(function(errorData) {
           console.log("fail: ", errorData);
         });
     }
   });
 
-  $(document).on("click", ".delete", function (event) {
-    const itemID = $(this).data("itemid")
+  $(document).on("click", ".delete", function(event) {
+    const itemID = $(this).data("itemid");
     $.ajax({
       type: "POST",
       url: "/api/myitems/delete",
-      data: {itemID},
+      data: { itemID },
       datatype: "query",
     })
-    .then(() => {
-      document.location = "/";
-    })
-  })
+      .then(() => {
+        document.location = "/";
+      });
+  });
 
-  $(document).on("click", ".sold", function (event) {
-    const itemID = $(this).data("soldid")
-    console.log("itemid", itemID)
+
+  $(document).on("click", ".sold", function(event) {
+    const itemID = $(this).data("soldid");
     $.ajax({
       type: "POST",
       url: "/api/myitems/sold",
-      data: {itemID},
+      data: { itemID },
       datatype: "query",
     })
-    .then(() => {
-      console.log("SOLD")
-    })
-  })
+      .then(() => {
+         $(".sold").hide()
+        });
+  });
 
   loadItems();
   renderMyItems();

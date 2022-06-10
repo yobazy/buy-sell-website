@@ -41,7 +41,7 @@ module.exports = (db) => {
   router.post("/sold", (req, res) => {
     const itemID = req.body.itemID;
     let queryString = `UPDATE items
-    SET sold_status = 'true'
+    SET sold_status = true
     WHERE id = $1`;
     let values = [itemID];
     db.query(queryString, values)
