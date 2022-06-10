@@ -41,7 +41,9 @@ $(document).ready(() => {
       </div>
       <footer class="message-price">
         <div class="fav-button">
-          <i id="favourite-heart" onclick=addToFavs(${item.id}) class="fa-solid fa-heart"></i>
+          <h2>
+            <i onclick=addToFavs(${item.id}) class="fa-solid fa-heart"></i>
+          </h2>
         </div>
         <div class="message">
           <a href="mailto:${item.email}?subject=Interested in your ${item.title
