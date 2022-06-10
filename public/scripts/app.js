@@ -56,7 +56,7 @@ $(document).ready(() => {
       </span>
       <p>${item.description}</p>
       <div class="button2">
-      <button class="sold">Mark as Sold</button>
+      <button class="sold" data-soldid = ${item.id}>Mark as Sold</button>
       <button class="delete" data-itemid = ${item.id}>Delete</button>
       </div>`);
     return $myItem;
@@ -182,7 +182,6 @@ $(document).ready(() => {
 
   $(document).on("click", ".delete", function (event) {
     const itemID = $(this).data("itemid")
-    console.log("itemid", itemID)
     $.ajax({
       type: "POST",
       url: "/api/myitems/delete",
@@ -191,6 +190,20 @@ $(document).ready(() => {
     })
     .then(() => {
       document.location = "/";
+    })
+  })
+
+  $(document).on("click", ".sold", function (event) {
+    const itemID = $(this).data("soldid")
+    console.log("itemid", itemID)
+    $.ajax({
+      type: "POST",
+      url: "/api/myitems/sold",
+      data: {itemID},
+      datatype: "query",
+    })
+    .then(() => {
+      console.log("SOLD")
     })
   })
 

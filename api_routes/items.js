@@ -15,7 +15,7 @@ module.exports = (db) => {
     const { filter } = req.body;
 
     let query = `
-    SELECT items.id as id, items.title as title, items.description as description, items.item_photo_url as item_photo_url, items.price as price, users.name as user_name, users.email as email
+    SELECT items.id as id, items.title as title, items.description as description, items.item_photo_url as item_photo_url, items.price as price, users.name as user_name, users.email as email, items.sold_status as sold_status
     FROM items
     JOIN users ON items.user_id = users.id
     GROUP BY items.id, users.id

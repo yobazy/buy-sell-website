@@ -11,7 +11,6 @@ module.exports = (db) => {
     db.query(queryString, values)
       .then(data => {
         const items = data.rows;
-        console.log(items);
         res.json({ items });
       })
       .catch(err => {
@@ -23,20 +22,32 @@ module.exports = (db) => {
 
   router.post("/delete", (req, res) => {
     const itemID = req.body.itemID;
-    console.log("itemID", itemID);
-
     let queryString = `
     DELETE FROM items
     WHERE id = $1
     `;
-    console.log("queryString: ", queryString);
     let values = [itemID];
-    console.log("values: ", values);
-
     db.query(queryString, values)
       .then(() => {
         res.redirect("/");
       })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
+
+  router.post("/sold", (req, res) => {
+    const itemID = req.body.itemID;
+    let queryString = `UPDATE items
+    SET sold_status = 'true'
+    WHERE id = $1`;
+    let values = [itemID];
+    db.query(queryString, values)
+    .then (() => {
+      res.send(200);
+    })
       .catch(err => {
         res
           .status(500)

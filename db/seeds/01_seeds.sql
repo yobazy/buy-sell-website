@@ -10,7 +10,7 @@ INSERT INTO users (name, email, is_admin) VALUES ('Mezillo Myker', 'mezz@gmail.c
 
 
 -- items table seeds here
-INSERT INTO items (user_id, title, description, item_photo_url, price, sold_status) VALUES (7, 'Fox', 'A pretty cool fox avatar', '/images/foxavatar.jpeg', 1000, true);
+INSERT INTO items (user_id, title, description, item_photo_url, price, sold_status) VALUES (2, 'Fox', 'A pretty cool fox avatar', '/images/foxavatar.jpeg', 1000, true);
 
 INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (5, 'Anime Girl', 'A pretty cool anime girl avatar', '/images/anigirl.webp', 5000);
 
