@@ -28,18 +28,32 @@ $(document).ready(() => {
     const $item = $(`
       <div class="layout">
       <img src="${item.item_photo_url}"/>
-      <h2>${item.title}</h2>
-      <span class="artist-price">
-        <p id="maker">Maker:${item.user_name}</p>
-        <h2>$${item.price / 100}</h2>
-      </span>
-      <p>${item.description}</p>
-      <div class="button2">
-      <i id="favourite-heart" onclick=addToFavs(${item.id}) class="fa-solid fa-heart"></i>
-      <a href="mailto:${item.email}?subject=Interested in your ${
-      item.title
-    } avatar">Message Seller</a>
-      </div>`);
+      <header class="maker-title">
+        <div class="maker">
+          <p id="maker">By: ${item.user_name}</p>
+        </div>
+        <div class="title">
+          <h2>${item.title}</h2>
+        </div>
+      </header>
+      <div class="description">
+        <p>${item.description}</p>
+      </div>
+      <footer class="message-price">
+        <div class="button2">
+          <i id="favourite-heart" onclick=addToFavs(${item.id}) class="fa-solid fa-heart"></i>
+        </div>
+        <div class="message">
+          <a href="mailto:${item.email}?subject=Interested in your ${
+            item.title
+          } avatar">Message Seller</a>
+        </div>
+        <div class="price">
+          <h2>$${item.price / 100}</h2>
+        </div>
+      </footer>
+    `);
+
     if (item.sold_status == true) {
       $item.append("<h1>Sold Out!</h1>");
     }
