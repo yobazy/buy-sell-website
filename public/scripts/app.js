@@ -40,7 +40,7 @@ $(document).ready(() => {
         <p>${item.description}</p>
       </div>
       <footer class="message-price">
-        <div class="button2">
+        <div class="fav-button">
           <i id="favourite-heart" onclick=addToFavs(${item.id}) class="fa-solid fa-heart"></i>
         </div>
         <div class="message">
@@ -68,7 +68,7 @@ $(document).ready(() => {
         <h2>$${item.price / 100}</h2>
       </span>
       <p>${item.description}</p>
-      <div class="button2">
+      <div class="fav-button">
       <button class="sold" data-soldid = ${item.id}>Mark as Sold</button>
       <button class="delete" data-itemid = ${item.id}>Delete</button>
       </div>`);

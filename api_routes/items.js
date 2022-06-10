@@ -76,7 +76,7 @@ module.exports = (db) => {
 
     if (req.body["min-price"]) {
 
-      const minPrice = req.body["min-price"];
+      const minPrice = req.body["min-price"] * 100;
       queryParams.push(`${minPrice}`);
       queryString += ` WHERE price >= $${queryParams.length}`;
       whereAlreadyExists = true;
@@ -85,7 +85,7 @@ module.exports = (db) => {
 
     if (req.body["max-price"]) {
 
-      const maxPrice = req.body["max-price"];
+      const maxPrice = req.body["max-price"] * 100;
       queryParams.push(`${maxPrice}`);
 
       if (whereAlreadyExists) {

@@ -18,7 +18,7 @@ INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (5
 
 INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (6, 'Anime Boy', 'A pretty cool anime boy avatar', '/images/aniboy.jpeg', 7500);
 
-INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (8, 'Banana Cat', 'yes', '/images/bananacat.webp', 2199);
+INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (8, 'Banana Cat', 'yes', '/images/bananacat.webp', 6999);
 
 INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (4, 'The Awwww', 'Just a cute furry otter model for VRC (VRChat) and CVR (Chillout VR) ! The package is full ready to use (very easy) and comes with tutorials ! It gets a lot of free updates and improvements overtime, stay in touch in Discord <3', '/images/aww.gif', 8999);
 
@@ -41,7 +41,7 @@ Nynx (3.0) by Lyanite ADDED PHYSBONES TO PC + QUEST
 ✔ Toggles: Mask, Hat/Ears, Pants-Shorts, Shoes
 
 ✔ Extras: Blade, Robot/Human Arm, 2 Springjoints, Drawing Pencil'
-, '/images/mynx.gif', 3500);
+, '/images/mynx.gif', 21.99);
 
 INSERT INTO items (user_id, title, description, item_photo_url, price) VALUES (6, '๑ஓ── Unspeaking Avatar! ──ஓ๑', '๑ஓ──── Silent ─────ஓ๑
 My 2022 project I have been working on is finally ready to release!
